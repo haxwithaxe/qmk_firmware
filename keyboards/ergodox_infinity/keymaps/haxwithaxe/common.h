@@ -50,4 +50,15 @@
 #define L10_NAME "10:Noop"
 #define L10_COLOR 322  // pink
 
+#define L11 11
+#define L12 12
+#define L13 13
+#define L14 14
+#define L15 15
+#define L16 16
+
+#define LTOP 16
+#define LTOP_NAME "Control"
+#define LTOP_COLOR 322  // pink
+
 #endif

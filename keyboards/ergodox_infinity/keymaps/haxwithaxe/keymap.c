@@ -37,13 +37,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *                                  +-----+-----+-----+
      */
     KC_EQL,  KC_1,   KC_2,    KC_3,    KC_4,    KC_5, KC_ESC,
-    KC_BSLS, KC_Q,   KC_W,    KC_E,    KC_R,    KC_T, TG(L1),
+    KC_BSLS, KC_Q,   KC_W,    KC_E,    KC_R,    KC_T, TG(LTOP),
     KC_TAB,  KC_A,   KC_S,    KC_D,    KC_F,    KC_G,
-    KC_LSFT, KC_Z,   KC_X,    KC_C,    KC_V,    KC_B, MO(L1),
+    KC_LSFT, KC_Z,   KC_X,    KC_C,    KC_V,    KC_B, MO(LTOP),
     KC_LGUI, KC_GRV, KC_BSLS, KC_LEFT, KC_RGHT,
-                                                  KC_LCTL, KC_LALT,
-                                                           KC_HOME,
-                                         KC_BSPC, KC_DEL,  KC_END,
+                                                KC_LCTL, KC_LALT,
+                                                         KC_HOME,
+                                       KC_BSPC, KC_DEL,  KC_END,
     /* right hand
      *        +-----+-----+-----+-----+-----+-----+-------+
      *        |LCK-2|  6  |  7  |  8  |  9  |  0  |   -   |
@@ -66,7 +66,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     TG(L2),  KC_6,   KC_7,    KC_8,    KC_9,   KC_0,     KC_MINS,
     KC_LBRC, KC_Y,   KC_U,    KC_I,    KC_O,   KC_P,     KC_RBRC,
              KC_H,   KC_J,    KC_K,    KC_L,   KC_SCLN,  KC_QUOT,
-    MO(L1),  KC_N,   KC_M,    KC_COMM, KC_DOT, KC_SLSH,  KC_RSFT,
+    MO(LTOP),KC_N,   KC_M,    KC_COMM, KC_DOT, KC_SLSH,  KC_RSFT,
                      KC_LEFT, KC_DOWN, KC_UP,  KC_RIGHT, KC_RGUI,
     KC_RALT, KC_RCTL,
     KC_PGUP,
@@ -74,60 +74,60 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [L1] = LAYOUT_ergodox( // layer 1 : function layers
-    /* left hand
-     *    +-------+-----+-----+-----+-----+-----+-----+
-     *    |       | f1  | f2  | f3  | f4  | f5  | f11 |
-     *    +-------+-----+-----+-----+-----+-----+-----+
-     *    |       |     |     |     |     |     |     |
-     *    +-------+-----+-----+-----+-----+-----+     |
-     *    |       |     |     |     |     |     +-----+
-     *    +-------+-----+-----+-----+-----+-----+     |
-     *    |       |     |     |     |     |     |     |
-     *    +-+-----+-----+-----+-----+-----+-----+-----+
-     *      |     |     |     |     |     |
-     *      +-----+-----+-----+-----+-----+   +-----+-----+
-     *                                        |     |     |
-     *                                  +-----+-----+-----+
-     *                                  |     |     |     |
-     *                                  |     |     +-----+
-     *                                  |     |     |     |
-     *                                  +-----+-----+-----+
-     */
-    KC_TRNS, TG(L1),  TG(L2),  TG(L3),  TG(L4),  TG(L5),  KC_TRNS,
-    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+     /* left hand
+      *    +-------+-----+-----+-----+-----+-----+-----+
+      *    |       | f1  | f2  | f3  | f4  | f5  | f11 |
+      *    +-------+-----+-----+-----+-----+-----+-----+
+      *    |       |     |     |     |     |     |     |
+      *    +-------+-----+-----+-----+-----+-----+     |
+      *    |       |     |     |     |     |     +-----+
+      *    +-------+-----+-----+-----+-----+-----+     |
+      *    |       |     |     |     |     |     |     |
+      *    +-+-----+-----+-----+-----+-----+-----+-----+
+      *      |     |     |     |     |     |
+      *      +-----+-----+-----+-----+-----+   +-----+-----+
+      *                                        |     |     |
+      *                                  +-----+-----+-----+
+      *                                  |     |     |     |
+      *                                  |     |     +-----+
+      *                                  |     |     |     |
+      *                                  +-----+-----+-----+
+      */
+     KC_TRNS, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F11,
+     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
                                                   KC_TRNS, KC_TRNS,
                                                            KC_TRNS,
                                          KC_TRNS, KC_TRNS, KC_TRNS,
-    /* right hand
-     *        +-----+-----+-----+-----+-----+-----+-------+
-     *        | f12 | f6  | f7  | f8  | f9  | f10 |       |
-     *        +-----+-----+-----+-----+-----+-----+-------+
-     *        |     |     |     |     |     |     |       |
-     *        |     +-----+-----+-----+-----+-----+-------+
-     *        +-----+     |     |     |     |     |       |
-     *        |     +-----+-----+-----+-----+-----+-------+
-     *        |     |     |     |     |     |     |       |
-     *        +-----+-----+-----+-----+-----+-----+-----+-+
-     *                    |     |     |     |     |     |
-     *    +-----+-----+   +-----+-----+-----+-----+-----+
-     *    |     |     |
-     *    +-----+-----+-----+
-     *    |     |     |     |
-     *    +-----+     |     |
-     *    |     |     |     |
-     *    +-----+-----+-----+
-     */
-    KC_TRNS, TG(L6),  TG(L7),  TG(L8),  TG(L9),  TG(L10), KC_TRNS,
-    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-             KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-                      KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-    KC_TRNS, KC_TRNS,
-    KC_TRNS,
-    KC_TRNS, KC_TRNS, KC_TRNS
+     /* right hand
+      *        +-----+-----+-----+-----+-----+-----+-------+
+      *        | f12 | f6  | f7  | f8  | f9  | f10 |       |
+      *        +-----+-----+-----+-----+-----+-----+-------+
+      *        |     |     |     |     |     |     |       |
+      *        |     +-----+-----+-----+-----+-----+-------+
+      *        +-----+     |     |     |     |     |       |
+      *        |     +-----+-----+-----+-----+-----+-------+
+      *        |     |     |     |     |     |     |       |
+      *        +-----+-----+-----+-----+-----+-----+-----+-+
+      *                    |     |     |     |     |     |
+      *    +-----+-----+   +-----+-----+-----+-----+-----+
+      *    |     |     |
+      *    +-----+-----+-----+
+      *    |     |     |     |
+      *    +-----+     |     |
+      *    |     |     |     |
+      *    +-----+-----+-----+
+      */
+     KC_F12,  KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_TRNS,
+     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+              KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+                       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+     KC_TRNS, KC_TRNS,
+     KC_TRNS,
+     KC_TRNS, KC_TRNS, KC_TRNS
   ),
 
   [L2] = LAYOUT_ergodox(
@@ -209,10 +209,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
     KC_3,    KC_6,    KC_7, KC_8, KC_9, KC_0, KC_TRNS,
     KC_2,    KC_A,    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_M,
-    KC_1,    KC_Q,    KC_TRNS, KC_TRNS, KC_TRNS, KC_NO,
-    KC_TRNS, KC_TRNS, KC_NO,   KC_NO,   KC_TRNS, KC_5, KC_TRNS,
-    KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_4,
-                                                 KC_TRNS, TG(L3),
+    KC_1,    KC_Q,    KC_TRNS, KC_TRNS, KC_TRNS, KC_X,
+    KC_TRNS, KC_TRNS, KC_NO,   KC_NO,   KC_TRNS, KC_5,    KC_TRNS,
+    KC_NO,   KC_NO,   KC_NO,   KC_LSFT,   KC_4,
+                                                 KC_TRNS, KC_TRNS,
                                                           KC_TRNS,
                                         KC_SPC,  MO(L4),  KC_TRNS,
     /* right hand
@@ -264,7 +264,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *                                  |     |     |     |
      *                                  +-----+-----+-----+
      */
-    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, TG(L3), KC_TRNS, KC_TRNS,
+    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
     KC_F1,   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
     KC_TAB,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_G,
     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
@@ -301,6 +301,62 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TRNS, KC_TRNS, KC_TRNS
   ),
 
+  [LTOP] = LAYOUT_ergodox( // layer 1 : function layers
+    /* left hand
+     *    +-------+-----+-----+-----+-----+-----+-----+
+     *    |       |LCK-1|LCK-2|LCK-3|LCK-4|LCK-5|     |
+     *    +-------+-----+-----+-----+-----+-----+-----+
+     *    |       |     |     |     |     |     |     |
+     *    +-------+-----+-----+-----+-----+-----+     |
+     *    |       |     |     |     |     |     +-----+
+     *    +-------+-----+-----+-----+-----+-----+     |
+     *    |       |     |     |     |     |     |     |
+     *    +-+-----+-----+-----+-----+-----+-----+-----+
+     *      |     |     |     |     |     |
+     *      +-----+-----+-----+-----+-----+   +-----+-----+
+     *                                        |     |     |
+     *                                  +-----+-----+-----+
+     *                                  |     |     |     |
+     *                                  |     |     +-----+
+     *                                  |     |     |     |
+     *                                  +-----+-----+-----+
+     */
+    KC_TRNS, TG(L1),  TG(L2),  TG(L3),  TG(L4),  TG(L5),  KC_TRNS,
+    KC_TRNS, TG(L11), TG(L12), TG(L13), TG(L14), TG(L15), KC_TRNS,
+    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+                                                  KC_TRNS, KC_TRNS,
+                                                           KC_TRNS,
+                                         KC_TRNS, KC_TRNS, KC_TRNS,
+    /* right hand
+     *        +-----+-----+-----+-----+-----+-----+-------+
+     *        |     |LCK-6|LCK-7|LCK-8|LCK-9|LCK-10|      |
+     *        +-----+-----+-----+-----+-----+-----+-------+
+     *        |     |     |     |     |     |     |       |
+     *        |     +-----+-----+-----+-----+-----+-------+
+     *        +-----+     |     |     |     |     |       |
+     *        |     +-----+-----+-----+-----+-----+-------+
+     *        |     |     |     |     |     |     |       |
+     *        +-----+-----+-----+-----+-----+-----+-----+-+
+     *                    |     |     |     |     |     |
+     *    +-----+-----+   +-----+-----+-----+-----+-----+
+     *    |     |     |
+     *    +-----+-----+-----+
+     *    |     |     |     |
+     *    +-----+     |     |
+     *    |     |     |     |
+     *    +-----+-----+-----+
+     */
+    KC_TRNS, TG(L6),  TG(L7),  TG(L8),  TG(L9),  TG(L10), KC_TRNS,
+    KC_TRNS, TG(L16), KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+             KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+                      KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+    KC_TRNS, KC_TRNS,
+    KC_TRNS,
+    KC_TRNS, KC_TRNS, KC_TRNS
+  ),
 };
 
 const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt) {
