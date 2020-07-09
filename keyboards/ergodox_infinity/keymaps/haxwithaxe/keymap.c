@@ -12,6 +12,14 @@ enum custom_keycodes {
   RGB_SLD
 };
 
+enum dd_macros {
+  STACK_MM = 0,
+  STACK_FT,
+  STACK_MB,
+  STACK_LT,
+  STACK_DST
+};
+
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -63,7 +71,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *    | PGDN|     |     |
      *    +-----+-----+-----+
      */
-    TG(L2),  KC_6,   KC_7,    KC_8,    KC_9,   KC_0,     KC_MINS,
+    KC_LOCK,  KC_6,   KC_7,    KC_8,    KC_9,   KC_0,     KC_MINS,
     KC_LBRC, KC_Y,   KC_U,    KC_I,    KC_O,   KC_P,     KC_RBRC,
              KC_H,   KC_J,    KC_K,    KC_L,   KC_SCLN,  KC_QUOT,
     MO(LTOP),KC_N,   KC_M,    KC_COMM, KC_DOT, KC_SLSH,  KC_RSFT,
@@ -207,14 +215,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *                                  |     |     |     |
      *                                  +-----+-----+-----+
      */
-    KC_3,    KC_6,    KC_7, KC_8, KC_9, KC_0, KC_TRNS,
+    KC_3,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_TRNS,
     KC_2,    KC_A,    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_M,
     KC_1,    KC_Q,    KC_TRNS, KC_TRNS, KC_TRNS, KC_X,
     KC_TRNS, KC_TRNS, KC_NO,   KC_NO,   KC_TRNS, KC_5,    KC_TRNS,
     KC_NO,   KC_NO,   KC_NO,   KC_LSFT,   KC_4,
                                                  KC_TRNS, KC_TRNS,
                                                           KC_TRNS,
-                                        KC_SPC,  MO(L4),  KC_TRNS,
+                                        KC_SPC,  MO(L8),  KC_TRNS,
     /* right hand
      *        +-----+-----+-----+-----+-----+-----+-------+
      *        |     |     |     |     |     |     |       |
@@ -244,7 +252,184 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TRNS, KC_TRNS, KC_TRNS
   ),
 
-  [L4] = LAYOUT_ergodox( // layer N: Dungeon Defenders Control
+
+  [L4] = LAYOUT_ergodox( // layer N: Dungeon Defenders - Pad 1
+    /* left hand
+     *    +-------+-----+-----+-----+-----+-----+-----+
+     *    | Abil 2|LS Lt|LS Up|     |     |     |Start|
+     *    +-------+-----+-----+-----+-----+-----+-----+
+     *    | Abil 1|     |LS Dn|LS Rt|     |     |     |
+     *    +-------+-----+-----+-----+-----+-----+     |
+     *    | Heal  |     |     |     |     |     +-----+
+     *    +-------+-----+-----+-----+-----+-----+     |
+     *    |       |     |     |     |     |     |     |
+     *    +-+-----+-----+-----+-----+-----+-----+-----+
+     *      |     |     |     |     |     |
+     *      +-----+-----+-----+-----+-----+   +-----+-----+
+     *                                        |     |     |
+     *                                  +-----+-----+-----+
+     *                                  |     |     |     |
+     *                                  |  A  |     +-----+
+     *                                  |     |     |     |
+     *                                  +-----+-----+-----+
+     */
+    KC_PAST,    KC_NO,  KC_NO,    KC_NO,    KC_NO, KC_NO, KC_DEL,
+    KC_NLCK,    KC_P7,  KC_PSLS,  KC_NO,    KC_NO, KC_NO, KC_NO,
+    KC_PMNS,    KC_NO,  KC_P8,    KC_P9,    KC_NO, KC_NO,
+    KC_NO,      KC_NO,  KC_NO,    KC_NO,    KC_NO, KC_NO, KC_TRNS,
+    KC_NO,      KC_NO,  KC_NO,    KC_TRNS, KC_NO /* dpad right */,
+                                                   KC_TRNS, KC_TRNS,
+                                                            KC_TRNS,
+                                          KC_INS,  KC_TRNS, KC_TRNS,
+    /* right hand
+     *        +-----+-----+-----+-----+-----+-----+-------+
+     *        |     |     |     |     |     |     |       |
+     *        +-----+-----+-----+-----+-----+-----+-------+
+     *        |     |     |     |     |     |     |       |
+     *        |     +-----+-----+-----+-----+-----+-------+
+     *        +-----+     |     |     |     |     |       |
+     *        |     +-----+-----+-----+-----+-----+-------+
+     *        |     |     |     |     |     |     |       |
+     *        +-----+-----+-----+-----+-----+-----+-----+-+
+     *                    |CamLt|CamRt|     |CamRt|     |
+     *    +-------+-----+ +-----+-----+-----+-----+-----+
+     *    |       |     |
+     *    +-------+-----+-----+
+     *    | Zoom  |     |     |
+     *    +-------+ Att |  B  |
+     *    |Alt Att|     |     |
+     *    +-------+-----+-----+
+     */
+    KC_TRNS, KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,  KC_NO,
+    KC_NO,   KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,  KC_NO,
+             KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,  KC_NO,
+    KC_TRNS, KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,  KC_NO,
+                    KC_MINS, KC_EQL,  KC_NO,   KC_EQL, KC_NO,
+    KC_HOME,   KC_NO,
+    KC_PAUS,
+    KC_PENT, KC_PPLS, KC_PGUP
+  ),
+
+  [L5] = LAYOUT_ergodox( // layer N: Dungeon Defenders - Pad 2
+    /* Ability 1: DPad down
+     * Ability 2: DPad up
+     * Heal: DPad left
+     * Repair: DPad right
+     *
+     * left hand
+     *    +-------+-----+-----+-----+-----+-----+-----+
+     *    | Abil 2|LS Lt|LS Up|     |     |     |Start|
+     *    +-------+-----+-----+-----+-----+-----+-----+
+     *    | Abil 1|     |LS Dn|LS Rt|     |     |     |
+     *    +-------+-----+-----+-----+-----+-----+     |
+     *    | Heal  |     |     |     |     |     +-----+
+     *    +-------+-----+-----+-----+-----+-----+     |
+     *    |       |     |     |     |     |     |     |
+     *    +-+-----+-----+-----+-----+-----+-----+-----+
+     *      |     |     |     |     |     |
+     *      +-----+-----+-----+-----+-----+   +-----+-----+
+     *                                        |     |     |
+     *                                  +-----+-----+-----+
+     *                                  |     |     |     |
+     *                                  |  A  |     +-----+
+     *                                  |     |     |     |
+     *                                  +-----+-----+-----+
+     */
+    KC_PDOT, KC_NO,   KC_NO,   KC_NO,   KC_NO, KC_NO, KC_END,
+    KC_P0,   KC_LEFT, KC_UP,   KC_NO,   KC_NO, KC_NO, KC_NO,
+    KC_PMNS, KC_NO,   KC_DOWN, KC_RGHT, KC_NO, KC_NO,
+    KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO, KC_NO, KC_TRNS,
+    KC_NO,   KC_NO,   KC_NO,   KC_TRNS, KC_NO /* dpad right */,
+                                                   KC_TRNS, KC_TRNS,
+                                                            KC_TRNS,
+                                          KC_INS,  KC_TRNS, KC_TRNS,
+    /* right hand
+     *        +-----+-----+-----+-----+-----+-----+-------+
+     *        |     |     |     |     |     |     |       |
+     *        +-----+-----+-----+-----+-----+-----+-------+
+     *        |     |     |     |     |     |     |       |
+     *        |     +-----+-----+-----+-----+-----+-------+
+     *        +-----+     |     |     |     |     |       |
+     *        |     +-----+-----+-----+-----+-----+-------+
+     *        |     |     |     |     |     |     |       |
+     *        +-----+-----+-----+-----+-----+-----+-----+-+
+     *                    |CamLt|CamRt|     |CamRt|     |
+     *    +-------+-----+ +-----+-----+-----+-----+-----+
+     *    |       |     |
+     *    +-------+-----+-----+
+     *    | Zoom  |     |     |
+     *    +-------+ Att |  B  |
+     *    |Alt Att|     |     |
+     *    +-------+-----+-----+
+     */
+    KC_TRNS, KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,  KC_NO,
+    KC_NO,   KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,  KC_NO,
+             KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,  KC_NO,
+    KC_TRNS, KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,  KC_NO,
+                    KC_SLSH, KC_BSLS,  KC_NO,   KC_BSLS, KC_NO,
+    KC_HOME, KC_NO,
+    KC_PAUS,
+    KC_PENT, KC_PPLS, KC_PGUP
+  ),
+
+  [L6] = LAYOUT_ergodox( // layer N: Dungeon Defenders - Pad 3
+    /* left hand
+     *    +-------+-----+-----+-----+-----+-----+-----+
+     *    | Abil 2|LS Lt|LS Up|     |     |     |Start|
+     *    +-------+-----+-----+-----+-----+-----+-----+
+     *    | Abil 1|     |LS Dn|LS Rt|     |     |     |
+     *    +-------+-----+-----+-----+-----+-----+     |
+     *    | Heal  |     |     |     |     |     +-----+
+     *    +-------+-----+-----+-----+-----+-----+     |
+     *    |       |     |     |     |     |     |     |
+     *    +-+-----+-----+-----+-----+-----+-----+-----+
+     *      |     |     |     |     |     |
+     *      +-----+-----+-----+-----+-----+   +-----+-----+
+     *                                        |     |     |
+     *                                  +-----+-----+-----+
+     *                                  |     |     |     |
+     *                                  |  A  |     +-----+
+     *                                  |     |     |     |
+     *                                  +-----+-----+-----+
+     */
+    KC_P4,   KC_NO,  KC_NO,    KC_NO,    KC_NO, KC_NO, KC_SLCK,
+    KC_P6,   KC_P7,  KC_PSLS,  KC_NO,    KC_NO, KC_NO, KC_NO,
+    KC_PMNS, KC_NO,  KC_P8,    KC_P9,    KC_NO, KC_NO,
+    KC_NO,   KC_NO,  KC_NO,    KC_NO,    KC_NO, KC_NO, KC_TRNS,
+    KC_NO,   KC_NO,  KC_NO,    KC_TRNS,  KC_NO /* dpad right */,
+                                                   KC_TRNS, KC_TRNS,
+                                                            KC_TRNS,
+                                          KC_INS,  KC_TRNS, KC_TRNS,
+    /* right hand
+     *        +-----+-----+-----+-----+-----+-----+-------+
+     *        |     |     |     |     |     |     |       |
+     *        +-----+-----+-----+-----+-----+-----+-------+
+     *        |     |     |     |     |     |     |       |
+     *        |     +-----+-----+-----+-----+-----+-------+
+     *        +-----+     |     |     |     |     |       |
+     *        |     +-----+-----+-----+-----+-----+-------+
+     *        |     |     |     |     |     |     |       |
+     *        +-----+-----+-----+-----+-----+-----+-----+-+
+     *                    |CamLt|CamRt|     |CamRt|     |
+     *    +-------+-----+ +-----+-----+-----+-----+-----+
+     *    |       |     |
+     *    +-------+-----+-----+
+     *    | Zoom  |     |     |
+     *    +-------+ Att |  B  |
+     *    |Alt Att|     |     |
+     *    +-------+-----+-----+
+     */
+    KC_TRNS, KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,  KC_NO,
+    KC_NO,   KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,  KC_NO,
+             KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,  KC_NO,
+    KC_TRNS, KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,  KC_NO,
+                    KC_DOT,  KC_COMM, KC_NO,   KC_COMM, KC_NO,
+    KC_HOME, KC_NO,
+    KC_PAUS,
+    KC_PENT, KC_PPLS, KC_PGUP
+  ),
+
+  [L8] = LAYOUT_ergodox( // layer 8: Dungeon Defenders Control
     /* left hand
      *    +-------+-----+-----+-----+-----+-----+-----+
      *    |       |     |     |     |     |     |     |
@@ -264,10 +449,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *                                  |     |     |     |
      *                                  +-----+-----+-----+
      */
-    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+    KC_TRNS, KC_NO,   TG(L4),  TG(L5),  KC_NO,  KC_TRNS, KC_TRNS,
     KC_F1,   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
     KC_TAB,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_G,
-    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+    KC_TRNS, KC_TRNS, KC_TRNS, KC_C,    KC_TRNS, KC_TRNS, KC_TRNS,
     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
                                                  KC_TRNS, KC_TRNS,
                                                           KC_TRNS,
@@ -399,6 +584,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       return false;
       break;
+    /*case STACK_XXX:
+      if (record->event.pressed) {
+        register_press(KC_XXX);
+        register_press(KC_SPC);
+        register_release(KC_XXX);
+        register_release(KC_SPC);
+      }
+      return false;
+      break;*/
   }
   return true;
 }

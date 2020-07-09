@@ -16,30 +16,30 @@
 
 #define L2 2
 #define L2_NAME "2:FnNum"
-#define L2_COLOR 230  // electric blue
+#define L2_COLOR 330  // electric blue
 
 #define L3 3
 #define L3_NAME "3:DD"
 #define L3_COLOR 40  // light orange
 
 #define L4 4
-#define L4_NAME "4:DDControl"
-#define L4_COLOR 50  // goldenrodish
+#define L4_NAME "4:DD Pad 1"
+#define L4_COLOR 200  //
 
 #define L5 5
-#define L5_NAME "5:Conf"
-#define L5_COLOR 300  // magenta
+#define L5_NAME "5:DD Pad 2"
+#define L5_COLOR 220  //
 
 #define L6 6
-#define L6_NAME "6:Noop"
-#define L6_COLOR 160  // teal
+#define L6_NAME "6:DD Pad 3"
+#define L6_COLOR 240  //
 
 #define L7 7
 #define L7_NAME "7:Noop"
 #define L7_COLOR 177  // cyan
 
 #define L8 8
-#define L8_NAME "8:Noop"
+#define L8_NAME "8:DDControl"
 #define L8_COLOR 188  // sky blue
 
 #define L9 9
