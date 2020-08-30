@@ -35,23 +35,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *    +-------+-----+-----+-----+-----+-----+ f1  |
      *    | LSHIFT|  Z  |  X  |  C  |  V  |  B  |     |
      *    +-+-----+-----+-----+-----+-----+-----+-----+
-     *      |LGUI |  `  |  \  |LEFT |RIGHT|
+     *      |LGUI |  `  |  \  |LEFT |FNAV |
      *      +-----+-----+-----+-----+-----+   +-----+-----+
      *                                        |LCTRL| LALT|
      *                                  +-----+-----+-----+
      *                                  |     |     | HOME|
      *                                  |BKSPC| DEL +-----+
-     *                                  |     |     | END |
+     *                                  |     |     |FNAV |
      *                                  +-----+-----+-----+
      */
     KC_EQL,  KC_1,   KC_2,    KC_3,    KC_4,    KC_5, KC_ESC,
     KC_BSLS, KC_Q,   KC_W,    KC_E,    KC_R,    KC_T, TG(LTOP),
     KC_TAB,  KC_A,   KC_S,    KC_D,    KC_F,    KC_G,
     KC_LSFT, KC_Z,   KC_X,    KC_C,    KC_V,    KC_B, MO(LTOP),
-    KC_LGUI, KC_GRV, KC_BSLS, KC_LEFT, KC_RGHT,
+    KC_LGUI, KC_GRV, KC_BSLS, KC_NO,   TG(LFN),
                                                 KC_LCTL, KC_LALT,
-                                                         KC_HOME,
-                                       KC_BSPC, KC_DEL,  KC_END,
+                                                         KC_NO,
+                                       KC_BSPC, KC_DEL,  MO(LFN),
     /* right hand
      *        +-----+-----+-----+-----+-----+-----+-------+
      *        |LCK-2|  6  |  7  |  8  |  9  |  0  |   -   |
@@ -62,33 +62,33 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *        | f1  +-----+-----+-----+-----+-----+-------+
      *        |     |  N  |  M  |  ,  |  .  |  /  | RSHIFT|
      *        +-----+-----+-----+-----+-----+-----+-----+-+
-     *                    |LEFT |DOWN | UP  |RIGHT| RGUI|
+     *                    |FNAV |     |     |     | RGUI|
      *    +-----+-----+   +-----+-----+-----+-----+-----+
      *    | RALT|RCTRL|
      *    +-----+-----+-----+
-     *    | PGUP|     |     |
+     *    |     |     |     |
      *    +-----+ ENT | SPC |
-     *    | PGDN|     |     |
+     *    | FNAV|     |     |
      *    +-----+-----+-----+
      */
-    KC_LOCK,  KC_6,   KC_7,    KC_8,    KC_9,   KC_0,     KC_MINS,
-    KC_LBRC, KC_Y,   KC_U,    KC_I,    KC_O,   KC_P,     KC_RBRC,
-             KC_H,   KC_J,    KC_K,    KC_L,   KC_SCLN,  KC_QUOT,
-    MO(LTOP),KC_N,   KC_M,    KC_COMM, KC_DOT, KC_SLSH,  KC_RSFT,
-                     KC_LEFT, KC_DOWN, KC_UP,  KC_RIGHT, KC_RGUI,
+    KC_LOCK,  KC_6,   KC_7,     KC_8,    KC_9,   KC_0,     KC_MINS,
+    KC_LBRC,  KC_Y,   KC_U,     KC_I,    KC_O,   KC_P,     KC_RBRC,
+              KC_H,   KC_J,     KC_K,    KC_L,   KC_SCLN,  KC_QUOT,
+    MO(LTOP), KC_N,   KC_M,     KC_COMM, KC_DOT, KC_SLSH,  KC_RSFT,
+                      TG(LFN),  KC_NO,   KC_NO,  KC_NO,    KC_RGUI,
     KC_RALT, KC_RCTL,
-    KC_PGUP,
-    KC_PGDN, KC_ENT, KC_SPC
+    KC_NO,
+    MO(LFN), KC_ENT, KC_SPC
   ),
 
-  [L1] = LAYOUT_ergodox( // layer 1 : function layers
+  [LFN] = LAYOUT_ergodox( // layer 1 : function layers
      /* left hand
       *    +-------+-----+-----+-----+-----+-----+-----+
       *    |       | f1  | f2  | f3  | f4  | f5  | f11 |
       *    +-------+-----+-----+-----+-----+-----+-----+
       *    |       |     |     |     |     |     |     |
       *    +-------+-----+-----+-----+-----+-----+     |
-      *    |       |     |     |     |     |     +-----+
+      *    |       |     |Home |PgUp |PgDn | End +-----+
       *    +-------+-----+-----+-----+-----+-----+     |
       *    |       |     |     |     |     |     |     |
       *    +-+-----+-----+-----+-----+-----+-----+-----+
@@ -103,7 +103,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       */
      KC_TRNS, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F11,
      KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+     KC_TRNS, KC_TRNS, KC_HOME, KC_PGUP, KC_PGDN, KC_END,
      KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
      KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
                                                   KC_TRNS, KC_TRNS,
@@ -115,7 +115,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       *        +-----+-----+-----+-----+-----+-----+-------+
       *        |     |     |     |     |     |     |       |
       *        |     +-----+-----+-----+-----+-----+-------+
-      *        +-----+     |     |     |     |     |       |
+      *        +-----+Left |Down | Up  |Right|     |       |
       *        |     +-----+-----+-----+-----+-----+-------+
       *        |     |     |     |     |     |     |       |
       *        +-----+-----+-----+-----+-----+-----+-----+-+
@@ -130,7 +130,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       */
      KC_F12,  KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_TRNS,
      KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-              KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+              KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_TRNS, KC_TRNS,
      KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
                        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
      KC_TRNS, KC_TRNS,
@@ -138,7 +138,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      KC_TRNS, KC_TRNS, KC_TRNS
   ),
 
-  [L2] = LAYOUT_ergodox(
+  [LNUM] = LAYOUT_ergodox(
     /* Left hand
      *    +-------+-----+-----+-----+-----+-----+-----+
      *    | FLASH |     |     |     |     |     |     |
@@ -195,7 +195,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TRNS, KC_TRNS, KC_KP_0
   ),
 
-  [L3] = LAYOUT_ergodox( // layer 3: Dungeon Defenders
+  [LDD] = LAYOUT_ergodox( // layer 3: Dungeon Defenders
     /* left hand
      *    +-------+-----+-----+-----+-----+-----+-----+
      *    |       |     |     |     |     |     |     |
@@ -222,7 +222,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_NO, KC_NO,   KC_NO,   KC_LSFT, KC_4,
                                                KC_TRNS, KC_INS,
                                                         KC_TRNS,
-                                      KC_SPC,  MO(L7),  KC_TRNS,
+                                      KC_SPC,  MO(LDDCTL),  KC_TRNS,
     /* right hand
      *        +-----+-----+-----+-----+-----+-----+-------+
      *        |     |     |     |     |     |     |       |
@@ -255,7 +255,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
 
-  [L4] = LAYOUT_ergodox(
+  [LDDP1] = LAYOUT_ergodox(
       KC_PDOT, KC_NO,   KC_NO,   KC_NO,    KC_NO, KC_NO, KC_RALT,
       KC_P0,   KC_LEFT, KC_UP,   KC_NO,    KC_NO, KC_NO, KC_HOME,
       KC_PMNS, KC_NO,   KC_DOWN, KC_RIGHT, KC_NO, KC_NO,
@@ -274,7 +274,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_PAUS,
       KC_GRAVE,  KC_PPLS, KC_PGUP
   ),
-  [L5] = LAYOUT_ergodox(
+  [LDDP2] = LAYOUT_ergodox(
       KC_PAST, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO, KC_CAPS,
       KC_NLCK, KC_P7,   KC_PSLS, KC_NO,   KC_NO,   KC_NO, KC_HOME,
       KC_PMNS, KC_NO,   KC_P8,   KC_P9,   KC_NO,   KC_NO,
@@ -293,7 +293,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_PAUS,
       KC_DEL,  KC_PPLS, KC_PGUP
   ),
-  [L6] = LAYOUT_ergodox(
+  [LDDP3] = LAYOUT_ergodox(
       KC_P6, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,      KC_SLCK,
       KC_P4, KC_P1, KC_P5, KC_NO,   KC_NO,   KC_NO,      KC_HOME,
       KC_PMNS, KC_NO,   KC_P2, KC_P3, KC_NO,   KC_NO,
@@ -313,7 +313,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_BSPC,  KC_PPLS, KC_PGUP
   ),
 
-  [L7] = LAYOUT_ergodox( // layer 8: Dungeon Defenders Control
+  [LDDCTL] = LAYOUT_ergodox( // layer 8: Dungeon Defenders Control
     /* left hand
      *    +-------+-----+-----+-----+-----+-----+-----+
      *    |       |     |     |     |     |     |     |
@@ -333,7 +333,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *                                  |     |     |     |
      *                                  +-----+-----+-----+
      */
-    KC_TRNS, KC_NO,   TG(L4),  TG(L5),  TG(L6),  KC_TRNS, KC_TRNS,
+    KC_TRNS, KC_NO,   TG(LDDP1),  TG(LDDP2),  TG(LDDP3),  KC_TRNS, KC_TRNS,
     KC_F1,   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
     KC_TAB,  KC_TRNS, KC_TRNS, KC_TRNS, KC_F,    KC_G,
     KC_TRNS, KC_TRNS, KC_TRNS, KC_C,    KC_TRNS, KC_TRNS, KC_TRNS,
@@ -390,8 +390,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *                                  |     |     |     |
      *                                  +-----+-----+-----+
      */
-    KC_TRNS, TG(L1),  TG(L2),  TG(L3),  TG(L4),  TG(L5),  KC_TRNS,
-    KC_TRNS, TG(L11), TG(L12), TG(L13), TG(L14), TG(L15), KC_TRNS,
+    KC_TRNS, TG(LFN),  TG(LNUM),  TG(LDD),  TG(LDDP1),  TG(LDDP2),  KC_TRNS,
+    KC_TRNS, TG(LTOP), TG(LTOP), TG(LTOP), TG(LTOP), TG(LTOP), KC_TRNS,
     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
@@ -417,8 +417,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *    |     |     |     |
      *    +-----+-----+-----+
      */
-    KC_TRNS, TG(L6),  TG(L7),  TG(L8),  TG(L9),  TG(L10), KC_TRNS,
-    KC_TRNS, TG(L16), KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+    KC_TRNS, TG(LDDP3),  TG(LDDCTL),  TG(LTOP),  TG(LTOP),  TG(LTOP), KC_TRNS,
+    KC_TRNS, TG(LTOP), KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
              KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
                       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
@@ -426,6 +426,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TRNS,
     KC_TRNS, KC_TRNS, KC_TRNS
   ),
+
 };
 
 const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt) {
