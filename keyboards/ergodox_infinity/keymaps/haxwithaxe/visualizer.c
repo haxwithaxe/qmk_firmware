@@ -316,13 +316,14 @@ static void get_visualizer_layer_and_color(visualizer_state_t* state) {
         saturation = 255;
     } */
 
-    if (state->status.layer & 0x400) {
+    /*if (state->status.layer & 0x400) {
         state->target_lcd_color = LCD_COLOR(L10_COLOR, saturation, 0xFF);
         state->layer_text = L10_NAME;
     } else if (state->status.layer & 0x200) {
         state->target_lcd_color = LCD_COLOR(L9_COLOR, saturation, 0xFF);
         state->layer_text = L9_NAME;
-    } else if (state->status.layer & 0x100) {
+    } else if (state->status.layer & 0x100) {*/
+    if (state->status.layer & 0x100) {
         state->target_lcd_color = LCD_COLOR(L8_COLOR, saturation, 0xFF);
         state->layer_text = L8_NAME;
         stop_keyframe_animation(&sweep_on_sweep_off_left_and_right);
