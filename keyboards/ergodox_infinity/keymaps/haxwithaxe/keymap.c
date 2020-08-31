@@ -12,14 +12,6 @@ enum custom_keycodes {
   RGB_SLD
 };
 
-enum dd_macros {
-  STACK_MM = 0,
-  STACK_FT,
-  STACK_MB,
-  STACK_LT,
-  STACK_DST
-};
-
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -47,11 +39,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_EQL,  KC_1,   KC_2,    KC_3,    KC_4,    KC_5, KC_ESC,
     KC_BSLS, KC_Q,   KC_W,    KC_E,    KC_R,    KC_T, TG(LTOP),
     KC_TAB,  KC_A,   KC_S,    KC_D,    KC_F,    KC_G,
-    KC_LSFT, KC_Z,   KC_X,    KC_C,    KC_V,    KC_B, MO(LTOP),
+    KC_NO,   KC_Z,   KC_X,    KC_C,    KC_V,    KC_B, MO(LTOP),
     KC_LGUI, KC_GRV, KC_BSLS, KC_NO,   TG(LFN),
                                                 KC_LCTL, KC_LALT,
                                                          KC_NO,
-                                       KC_BSPC, KC_DEL,  MO(LFN),
+                                       KC_DEL,  KC_BSPC, KC_LSFT,
     /* right hand
      *        +-----+-----+-----+-----+-----+-----+-------+
      *        |LCK-2|  6  |  7  |  8  |  9  |  0  |   -   |
@@ -78,7 +70,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                       TG(LFN),  KC_NO,   KC_NO,  KC_NO,    KC_RGUI,
     KC_RALT, KC_RCTL,
     KC_NO,
-    MO(LFN), KC_ENT, KC_SPC
+    MO(LFN), KC_SPC, KC_ENT
   ),
 
   [LFN] = LAYOUT_ergodox( // layer 1 : function layers
@@ -248,7 +240,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
              KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
     // pad 1 ab1, noop, pad 1 cam left, noop, pad 1 cam right
     KC_P0,   KC_TRNS, KC_SLSH, KC_UP,   KC_RIGHT, KC_BSLS, KC_TRNS,
-                      KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+                      KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_NO,
     KC_TRNS, KC_TRNS,
     KC_PAUS,  // com zoom
     KC_GRAVE, KC_PPLS, KC_PGUP  //pad 1 lshoulder, com rshoulder and b button
@@ -333,9 +325,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *                                  |     |     |     |
      *                                  +-----+-----+-----+
      */
-    KC_TRNS, KC_NO,   TG(LDDP1),  TG(LDDP2),  TG(LDDP3),  KC_TRNS, KC_TRNS,
-    KC_F1,   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-    KC_TAB,  KC_TRNS, KC_TRNS, KC_TRNS, KC_F,    KC_G,
+    KC_TRNS, KC_NO,   TG(LDDP1),  TG(LDDP2),  TG(LDDP3),  KC_F1, KC_TAB,
+    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_F,    KC_G,
     KC_TRNS, KC_TRNS, KC_TRNS, KC_C,    KC_TRNS, KC_TRNS, KC_TRNS,
     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
                                                  KC_TRNS, KC_TRNS,
@@ -360,7 +352,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *    |     |     |     |
      *    +-----+-----+-----+
      */
-    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+    KC_TRNS, MO(LDDP1), MO(LDDP2), MO(LDDP3), KC_TRNS, KC_TRNS, KC_TRNS,
     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
              KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
