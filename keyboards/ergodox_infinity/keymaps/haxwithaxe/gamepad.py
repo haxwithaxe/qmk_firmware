@@ -1,3 +1,7 @@
+
+KEYS = []
+
+
 class Key:
     """
 
@@ -11,8 +15,13 @@ class Key:
     """
 
     def __init__(self, code, config):
+        KEYS.append(self)
         self.qmk = code
         self.x360kb = config
+
+    def __repr__(self):
+        return '<Key qmk={}, x360kb={}>'.format(self.qmk, self.x360kb)
+
 
 F1 = Key('KC_F1', 'F1')
 F2 = Key('KC_F2', 'F2')
@@ -276,26 +285,25 @@ class Pad:
            +-------+-----+-----+
 
          '''
-        return '''\
-          LAYOUT_ergodox(
-              {self.dpad_up.qmk}, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,      {self.start.qmk},
-              {self.dpad_down.qmk}, {self.left_analog_left.qmk}, {self.left_analog_up.qmk}, KC_NO,   KC_NO,   KC_NO,      {self.back.qmk},
-              {self.dpad_left.qmk}, KC_NO,   {self.left_analog_down.qmk}, {self.left_analog_right.qmk}, KC_NO,   KC_NO,
-              {self.dpad_left.qmk}, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,      KC_TRNS,
-              KC_NO,   KC_NO,   KC_NO,   KC_TRNS, {self.dpad_right.qmk},
-                                                           KC_NO,      {self.x.qmk},
-                                                                       KC_NO,
-                                                           {self.a.qmk}, KC_TRNS, KC_NO,
+        return '''LAYOUT_ergodox(
+    {self.dpad_up.qmk}, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,      {self.start.qmk},
+    {self.dpad_down.qmk}, {self.left_analog_left.qmk}, {self.left_analog_up.qmk}, KC_NO,   KC_NO,   KC_NO,      {self.back.qmk},
+    {self.dpad_left.qmk}, KC_NO,   {self.left_analog_down.qmk}, {self.left_analog_right.qmk}, KC_NO,   KC_NO,
+    {self.dpad_left.qmk}, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,      KC_TRNS,
+    KC_NO,   KC_NO,   KC_NO,   KC_TRNS, {self.dpad_right.qmk},
+                                        KC_NO,      {self.x.qmk},
+                                                    KC_NO,
+                                        {self.a.qmk}, KC_TRNS, KC_NO,
 
-              KC_TRNS, KC_NO,   KC_NO,    KC_NO,   KC_NO,   KC_NO,      KC_NO,
-              KC_NO,   KC_NO,   KC_NO,    KC_NO,   KC_NO,   KC_NO,      KC_NO,
-                       KC_NO,   KC_NO,    KC_NO,   KC_NO,   KC_NO,      KC_NO,
-              KC_TRNS, KC_NO,   KC_NO,    KC_NO,   KC_NO,   KC_NO,      KC_NO,
-                       {self.right_analog_left.qmk}, {self.right_analog_down.qmk},  {self.right_analog_up.qmk}, {self.right_analog_right.qmk}, KC_NO,
-              KC_NO,   {self.y.qmk},
-              {self.right_thumb.qmk},
-              {self.left_trigger.qmk},  {self.right_shoulder.qmk}, {self.b.qmk}
-          ),'''.format(self=self)
+    KC_TRNS, KC_NO,   KC_NO,    KC_NO,   KC_NO,   KC_NO,      KC_NO,
+    KC_NO,   KC_NO,   KC_NO,    KC_NO,   KC_NO,   KC_NO,      KC_NO,
+             KC_NO,   KC_NO,    KC_NO,   KC_NO,   KC_NO,      KC_NO,
+    KC_TRNS, KC_NO,   KC_NO,    KC_NO,   KC_NO,   KC_NO,      KC_NO,
+             {self.right_analog_left.qmk}, {self.right_analog_down.qmk},  {self.right_analog_up.qmk}, {self.right_analog_right.qmk}, KC_NO,
+    KC_NO,   {self.y.qmk},
+    {self.right_thumb.qmk},
+    {self.left_trigger.qmk},  {self.right_shoulder.qmk}, {self.b.qmk}
+  ),'''.format(self=self)
 
     @property
     def x360kb(self):
@@ -305,7 +313,6 @@ class Pad:
                 entries.append(conf.x360kb)
 
         return '[PAD{}]\n{}'.format(self.pad_number, '\n'.join(entries))
-
 
     def __iter__(self):
         return iter((
@@ -335,6 +342,30 @@ class Pad:
             self.left_shoulder
             ))
 
+
+def used(*pads):
+    used_keys = []
+    for pad in pads:
+        for kc in pad:
+            if kc.key is not None and kc.key in [k.key for k in used_keys]:
+                print('Found multiple uses of', kc.key)
+                print('\t', kc.name)
+                for k in used_keys:
+                    if k.key == kc.key:
+                        print('\t', k.name)
+            used_keys.append(kc)
+    return [k.key for k in used_keys]
+
+
+def unused(*pads):
+    unused_keys = []
+    used_keys = used(*pads)
+    for key in KEYS:
+        if key not in used_keys:
+            unused_keys.append(key)
+    return unused_keys
+
+
 common_entries = dict(
         back=Home,
         a=Insert, b=PgUp,
@@ -351,24 +382,25 @@ PAD1 = Pad(1,
       )
 
 PAD2 = Pad(2,
-        start=CapsLock,
+        start=NumEnter,
         x=Semicolon, y=Apostrophe,
         dpad_down=NumLock, dpad_up=NumStar,
         left_analog_left=Num7, left_analog_down=Num8, left_analog_up=NumSlash, left_analog_right=Num9, left_trigger=Delete,
-        right_analog_left=Minus, right_analog_right=Equals, right_shoulder=NumPlus,
+        right_analog_left=Minus, right_analog_right=Equals, right_shoulder=Left_Bracket,
         **common_entries
       )
 
 PAD3 = Pad(3,
-        start=Scroll_Lock,
+        start=Right_Control,
         dpad_down=Num4, dpad_up=Num6,
         left_analog_left=Num1, left_analog_down=Num2, left_analog_up=Num5, left_analog_right=Num3, left_trigger=Backspace,
-        right_analog_left=Period, right_analog_right=Comma, right_shoulder=NumPlus, **common_entries
+        right_analog_left=Period, right_analog_right=Comma, right_shoulder=Right_Bracket,
+        **common_entries
       )
 
-print('[L4] =', PAD1.qmk)
-print('[L5] =', PAD2.qmk)
-print('[L6] =', PAD3.qmk)
+print('  [LDDP1] =', PAD1.qmk)
+print('  [LDDP2] =', PAD2.qmk)
+print('  [LDDP3] =', PAD3.qmk)
 print('\n\n\nx360kb.ini\n')
 print(PAD1.x360kb)
 print()
