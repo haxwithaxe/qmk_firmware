@@ -83,7 +83,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_RGUI, TG(L1),  TG(LNUM), KC_NO,   TG(LFN),
     									 KC_RCTL, KC_RSFT,
     										      KC_RALT,
-                                KC_SPC,  KC_ENT,  MO(LFN),
+                                KC_ENT,  KC_SPC,  MO(LFN),
 
     /*
      * right hand
