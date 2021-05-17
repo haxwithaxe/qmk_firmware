@@ -11,41 +11,45 @@
 #define L0_NAME "0"
 #define L0_COLOR 0  // red
 
-#define LDD 1
-#define L1_NAME "DD"
-#define L1_COLOR 40  // green
+#define L1 1
+#define L1_NAME "1"
+#define L1_COLOR 0  // red
 
-#define LDDP1 2
-#define L2_NAME "DD Pad 1"
-#define L2_COLOR 200  // purple
+#define LDD 2
+#define L2_NAME "DD"
+#define L2_COLOR 40  // green
 
-#define LDDP2 3
-#define L3_NAME "DD Pad 2"
-#define L3_COLOR 220  // lavender
+#define LDDP1 3
+#define L3_NAME "DD Pad 1"
+#define L3_COLOR 200  // purple
 
-#define LDDP3 4
-#define L4_NAME "DD Pad 3"
-#define L4_COLOR 240  // pink
+#define LDDP2 4
+#define L4_NAME "DD Pad 2"
+#define L4_COLOR 220  // lavender
 
-#define LDDCTL 5
-#define L5_NAME "DD Control"
-#define L5_COLOR 45  // green
+#define LDDP3 5
+#define L5_NAME "DD Pad 3"
+#define L5_COLOR 240  // pink
 
-#define LNUM 6
-#define L6_NAME "Num Pad"
-#define L6_COLOR 330  // electric blue
+#define LDDCTL 6
+#define L6_NAME "DD Control"
+#define L6_COLOR 45  // green
 
-#define LFN 7
-#define L7_NAME "FN"
-#define L7_COLOR 20
+#define LNUM 7
+#define L7_NAME "Num Pad"
+#define L7_COLOR 330  // electric blue
 
-#define LSAFE 8 // default layer
-#define L8_NAME "SAFE"
-#define L8_COLOR 10  // ?
+#define LFN 8
+#define L8_NAME "FN"
+#define L8_COLOR 20
 
-#define LTOP 9
-#define L9_NAME "Control"
-#define L9_COLOR 322  // pink
+#define LSAFE 9 // default layer
+#define L9_NAME "SAFE"
+#define L9_COLOR 10  // ?
+
+#define LTOP 10
+#define L10_NAME "Control"
+#define L10_COLOR 322  // pink
 
 
 #endif
