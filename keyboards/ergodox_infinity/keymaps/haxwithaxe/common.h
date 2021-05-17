@@ -39,9 +39,13 @@
 #define L7_NAME "FN"
 #define L7_COLOR 20
 
-#define LTOP 8
-#define L8_NAME "Control"
-#define L8_COLOR 322  // pink
+#define LSAFE 8 // default layer
+#define L8_NAME "SAFE"
+#define L8_COLOR 10  // ?
+
+#define LTOP 9
+#define L9_NAME "Control"
+#define L9_COLOR 322  // pink
 
 
 #endif
