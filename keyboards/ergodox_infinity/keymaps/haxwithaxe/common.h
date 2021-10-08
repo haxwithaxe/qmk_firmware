@@ -11,7 +11,7 @@
 #define L0_NAME "0"
 #define L0_COLOR 0  // red
 
-#define L1 1
+#define LMIRROR 1
 #define L1_NAME "1"
 #define L1_COLOR 0  // red
 

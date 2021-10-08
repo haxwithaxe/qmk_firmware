@@ -73,7 +73,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     MO(LFN), KC_SPC,  KC_ENT
   ),
 
-  [L1] = LAYOUT_ergodox(  // layer 0 : default
+  [LMIRROR] = LAYOUT_ergodox(  // layer 1 : Mirror default layer
     /* left hand
      */
     KC_MINS, KC_0,    KC_9,     KC_8,    KC_7,    KC_6, KC_LOCK,
@@ -98,7 +98,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      KC_LSFT,  KC_BSPC, KC_DEL
   ),
 
-  [LFN] = LAYOUT_ergodox( // layer 2 : function layers
+  [LFN] = LAYOUT_ergodox( // layer 2 : Function/nav layer
      /* left hand
       *    +-------+-----+-----+-----+-----+-----+-----+
       *    |       | f1  | f2  | f3  | f4  | f5  | f11 |
@@ -385,12 +385,69 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TRNS, KC_TRNS, KC_TRNS
   ),
 
-  [LTOP] = LAYOUT_ergodox( // layer 1 : function layers
+  [LSAFE] = LAYOUT_ergodox( // layer 9 : Gaming safe layer
+     /* left hand
+      *    +-------+-----+-----+-----+-----+-----+-----+
+      *    |       |     |     |     |     |     |     |
+      *    +-------+-----+-----+-----+-----+-----+-----+
+      *    |       |     |     |     |     |     |     |
+      *    +-------+-----+-----+-----+-----+-----+     |
+      *    |       |     |     |     |     |     +-----+
+      *    +-------+-----+-----+-----+-----+-----+     |
+      *    |       |     |     |     |     |     |     |
+      *    +-+-----+-----+-----+-----+-----+-----+-----+
+      *      |     |     |NoOp |NoOp |NoOp |
+      *      +-----+-----+-----+-----+-----+   +-----+-----+
+      *                                        |     |     |
+      *                                  +-----+-----+-----+
+      *                                  |     |     |     |
+      *                                  |     |     +-----+
+      *                                  |     |     |     |
+      *                                  +-----+-----+-----+
+      */
+     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+     KC_TRNS, KC_TRNS, KC_NO,   KC_NO,   KC_NO,
+                                                  KC_TRNS, KC_TRNS,
+                                                           KC_TRNS,
+                                         KC_TRNS, KC_TRNS, KC_TRNS,
+     /* right hand
+      *        +-----+-----+-----+-----+-----+-----+-------+
+      *        |     |     |     |     |     |     |       |
+      *        +-----+-----+-----+-----+-----+-----+-------+
+      *        |     |     |     |     |     |     |       |
+      *        |     +-----+-----+-----+-----+-----+-------+
+      *        +-----+     |     |     |     |     |       |
+      *        |     +-----+-----+-----+-----+-----+-------+
+      *        |     |     |     |     |     |     |       |
+      *        +-----+-----+-----+-----+-----+-----+-----+-+
+      *                    |NoOp |NoOp |NoOp |     |     |
+      *    +-----+-----+   +-----+-----+-----+-----+-----+
+      *    |     |     |
+      *    +-----+-----+-----+
+      *    |     |     |     |
+      *    +-----+     |     |
+      *    |     |     |     |
+      *    +-----+-----+-----+
+      */j
+     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+              KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+                       KC_NO,   KC_NO,   KC_NO,   KC_TRNS, KC_TRNS,
+     KC_TRNS, KC_TRNS,
+     KC_TRNS,
+     KC_TRNS, KC_TRNS, KC_TRNS
+  ),
+
+  [LTOP] = LAYOUT_ergodox( // Top layer : function layers
     /* left hand
      *    +-------+-----+-----+-----+-----+-----+-----+
      *    |       | LFN |LNUM | DD  |PAD1 |PAD2 |     |
      *    +-------+-----+-----+-----+-----+-----+-----+
-     *    |       |PAD3 |DDCTL|SAFE |     |     |     |
+     *    |       |PAD3 |DDCTL|LSAFE|     |     |     |
      *    +-------+-----+-----+-----+-----+-----+     |
      *    |       |     |     |     |     |     +-----+
      *    +-------+-----+-----+-----+-----+-----+     |
@@ -405,14 +462,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *                                  |     |     |     |
      *                                  +-----+-----+-----+
      */
-    KC_TRNS, TG(LFN),   TG(LNUM),   TG(LDD),  TG(LDDP1), TG(LDDP2), KC_TRNS,
-    KC_TRNS, TG(LDDP3), TG(LDDCTL), TG(LTOP), TG(LTOP),  TG(LTOP),  KC_TRNS,
-    KC_TRNS, KC_TRNS,   KC_TRNS,    KC_TRNS,  KC_TRNS,   KC_TRNS,
-    KC_TRNS, KC_TRNS,   KC_TRNS,    KC_TRNS,  KC_TRNS,   KC_TRNS, KC_TRNS,
-    KC_TRNS, KC_TRNS,   KC_TRNS,    KC_TRNS,  KC_TRNS,
-                                                         KC_TRNS, KC_TRNS,
-                                                                  KC_TRNS,
-                                                KC_TRNS, KC_TRNS, KC_TRNS,
+    KC_TRNS, TG(LFN),   TG(LNUM),   TG(LDD),   TG(LDDP1), TG(LDDP2), KC_TRNS,
+    KC_TRNS, TG(LDDP3), TG(LDDCTL), TG(LSAFE), TG(LTOP),  TG(LTOP),  KC_TRNS,
+    KC_TRNS, KC_TRNS,   KC_TRNS,    KC_TRNS,   KC_TRNS,   KC_TRNS,
+    KC_TRNS, KC_TRNS,   KC_TRNS,    KC_TRNS,   KC_TRNS,   KC_TRNS, KC_TRNS,
+    KC_TRNS, KC_TRNS,   KC_TRNS,    KC_TRNS,   KC_TRNS,
+                                                          KC_TRNS, KC_TRNS,
+                                                                   KC_TRNS,
+                                               KC_TRNS,   KC_TRNS, KC_TRNS,
     /* right hand
      *        +-----+-----+-----+-----+-----+-----+-------+
      *        |     |PAD3 |DDCTL|LSAFE|LTOP |LTOP |       |
