@@ -14,10 +14,10 @@
 #define CTL_SLSH CTL_T(KC_SLSH)
 #define GUI_ESC GUI_T(KC_ESC)
 #define HYPER LGUI(LSFT(KC_LALT))
-#define SYM_BSPC LT(MSYM, KC_BSPC)
-#define SYM_SPC LT(MSYM, KC_SPC)
-#define NUM_DEL LT(MNUM, KC_DEL)
-#define NUM_ENT LT(MNUM, KC_ENT)
+#define NUM_BSPC LT(MNUM, KC_BSPC)
+#define NUM_SPC LT(MNUM, KC_SPC)
+#define SYM_DEL LT(MSYM, KC_DEL)
+#define SYM_ENT LT(MSYM, KC_ENT)
 
 enum custom_layers {
     M0,      // Base layer
@@ -66,7 +66,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_NO, KC_NO,   KC_NO,   KC_NO,    KC_NO,
                                                 KC_RCTL, KC_RSFT,
                                                          KC_RALT,
-                                       NUM_ENT, SYM_SPC, MO(MSYM),
+                                       SYM_ENT, NUM_SPC, MO(MSYM),
     /* right hand
      *        +-----+-----+-----+-----+-----+-----+-------+
      *        | TOP|      |     |     |     |     |       |
@@ -91,9 +91,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
               KC_G,   KC_F,    KC_D,    KC_S,     KC_A,    KC_NO,
     KC_TAB,   KC_B,   KC_V,    KC_C,    KC_X,     KC_Z,    KC_NO,
                       KC_NO,   KC_NO,   KC_NO,    KC_NO,   KC_NO,
-    KC_LALT, KC_LCTL,
+    KC_LCTL, KC_LALT,
     KC_INS,
-    KC_LSFT, SYM_BSPC,  NUM_DEL
+    KC_LSFT, NUM_BSPC,  SYM_DEL
   ),
 
   [MMIRROR] = LAYOUT_ergodox(  // layer 1 : Mirror default layer
