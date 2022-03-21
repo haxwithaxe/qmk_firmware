@@ -240,7 +240,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [MGAM] = LAYOUT_ergodox( // layer 9 : Gaming layer
      /* left hand
       *    +-------+-----+-----+-----+-----+-----+-----+
-      *    |  ESC  |  1  | 2   | 3   | 4   | 5   |GAME |
+      *    |  ESC  |  1  | 2   | 3   | 4   | 5   | TOP |
       *    +-------+-----+-----+-----+-----+-----+-----+
       *    | LALT  |     |     |     |     |     |RALT |
       *    +-------+-----+-----+-----+-----+-----+     |
@@ -250,14 +250,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       *    +-+-----+-----+-----+-----+-----+-----+-----+
       *      |  ,  |  [  |  ]  |  '  | -   |
       *      +-----+-----+-----+-----+-----+   +-----+-----+
-      *                                        |     |     |
+      *                                        |     |GAME |
       *                                  +-----+-----+-----+
       *                                  |     |     |     |
       *                                  | DEL |BSPC +-----+
       *                                  |     |     |     |
       *                                  +-----+-----+-----+
       */
-     KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, TG(MGAM),
+     KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, TG(MTOP),
      KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
      KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
      KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
@@ -284,12 +284,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       *    |     |     |     |
       *    +-----+-----+-----+
       */
-     TG(MGAM),KC_5,    KC_4,    KC_3,    KC_2,    KC_1,    KC_ESC,
-     KC_RALT, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_LALT,
-              KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_LCTL,
-     KC_RCTL, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_DOT,
-                       KC_MINS, KC_QUOT, KC_RBRC, KC_LBRC, KC_COMM,
-     KC_TRNS, KC_TRNS,
+     TG(MTOP),KC_5,    KC_4,    KC_3,    KC_2,    KC_1,    KC_ESC,
+     KC_RALT, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_BSLS,
+              KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_DOT,
+     KC_RCTL, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_MINS,
+                       KC_LCTL, KC_LALT, KC_RBRC, KC_LBRC, KC_COMM,
+     TG(MGAM),KC_TRNS,
      KC_TRNS,
      KC_TRNS, KC_BSPC, KC_DEL
   ),

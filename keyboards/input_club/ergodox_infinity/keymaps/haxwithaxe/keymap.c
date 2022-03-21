@@ -231,7 +231,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [LGAM] = LAYOUT_ergodox( // layer 9 : Gaming layer
      /* left hand
       *    +-------+-----+-----+-----+-----+-----+-----+
-      *    |  ESC  |  1  | 2   | 3   | 4   | 5   |GAME |
+      *    |  ESC  |  1  | 2   | 3   | 4   | 5   | TOP |
       *    +-------+-----+-----+-----+-----+-----+-----+
       *    | LALT  |     |     |     |     |     |RALT |
       *    +-------+-----+-----+-----+-----+-----+     |
@@ -241,19 +241,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       *    +-+-----+-----+-----+-----+-----+-----+-----+
       *      |  ,  |  [  |  ]  |  '  | -   |
       *      +-----+-----+-----+-----+-----+   +-----+-----+
-      *                                        |     |     |
+      *                                        |     |GAME |
       *                                  +-----+-----+-----+
       *                                  |     |     |     |
       *                                  | DEL |BSPC +-----+
       *                                  |     |     |     |
       *                                  +-----+-----+-----+
       */
-     KC_ESC,   KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    TG(LGAM),
-     KC_LALT,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_RALT,
-     KC_LCTL,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-     KC_DOT,   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_RCTL,
-     KC_COMM,  KC_LBRC, KC_RBRC, KC_QUOT, KC_MINS,
-                                                   KC_TRNS, KC_TRNS,
+     KC_ESC,   KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    TG(LTOP),
+     KC_BSLS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_RALT,
+     KC_DOT,   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+     KC_MINS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_RCTL,
+     KC_COMM,  KC_LBRC, KC_RBRC, KC_LALT, KC_LCTL,
+                                                   KC_TRNS, TG(LGAM),
                                                             KC_TRNS,
                                           KC_DEL,  KC_BSPC, KC_TRNS,
      /* right hand: Leave blank
