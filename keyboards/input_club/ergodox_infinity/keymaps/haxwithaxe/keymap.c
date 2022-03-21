@@ -1,11 +1,7 @@
 #include QMK_KEYBOARD_H
 #include "version.h"
 
-#define ALT_ESC ALT_T(KC_ESC)
 #define CTL_ESC CTL_T(KC_ESC)
-#define CTL_SLSH CTL_T(KC_SLSH)
-#define GUI_ESC GUI_T(KC_ESC)
-#define HYPER LGUI(LSFT(KC_LALT))
 #define NUM_BSPC LT(LNUM, KC_BSPC)
 #define NUM_SPC LT(LNUM, KC_SPC)
 #define SYM_DEL LT(LSYM, KC_DEL)
@@ -17,7 +13,7 @@ enum custom_layers {
     LSYM,    // Symbols and nav layer
     LNUM,    // Numbers and F keys layer
     LGAM,    // Gaming layer
-    LMED,    // Media layer
+    LUTIL,   // Media/nav layer
     LTOP     // Top control and lock keys layer
 };
 
@@ -85,7 +81,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                       KC_NO,   KC_NO,   KC_NO,    KC_NO,   KC_NO,
     KC_RSFT, KC_RCTL,
     KC_RALT,
-    MO(LSYM), NUM_SPC,  SYM_ENT
+    MO(LUTIL), NUM_SPC,  SYM_ENT
   ),
 
   [LMIRROR] = LAYOUT_ergodox(  // layer 1 : Mirror default layer
@@ -135,8 +131,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       *                                  +-----+-----+-----+
       */
      KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, TG(LTOP),
-     KC_TRNS, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, TG(LSYM),
-     KC_TRNS, KC_EQL,  KC_LBRC, KC_LCBR, KC_RCBR, KC_RBRC,
+     KC_TRNS, KC_EQL,  KC_LBRC, KC_LCBR, KC_RCBR, KC_RBRC, TG(LSYM),
+     KC_TRNS, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,
      KC_TRNS, KC_PLUS, KC_TILD, KC_GRV,  KC_PIPE, KC_BSLS, TG(LNUM),
      KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
                                                   KC_TRNS, KC_TRNS,
@@ -146,11 +142,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       *        +-----+-----+-----+-----+-----+-----+-------+
       *        | TOP |     |     |     |     |     |       |
       *        +-----+-----+-----+-----+-----+-----+-------+
-      *        | SYM |  ^  |  &  |  *  |  (  |  )  |       |
+      *        | SYM |     |     |     |     |     |       |
       *        |     +-----+-----+-----+-----+-----+-------+
-      *        +-----+ RT  | DN  | UP  | LT  |  _  |       |
+      *        +-----+  ^  |  &  |  *  |  (  |  )  |       |
       *        | NUM +-----+-----+-----+-----+-----+-------+
-      *        |     |HOME |PGDN |PGUP | END |  -  |       |
+      *        |     |  <  |  -  |  _  |  >  |     |       |
       *        +-----+-----+-----+-----+-----+-----+-----+-+
       *                    |     |     |     |     |     |
       *    +-----+-----+   +-----+-----+-----+-----+-----+
@@ -162,9 +158,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       *    +-----+-----+-----+
       */
      TG(LTOP),KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-     TG(LSYM),KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_TRNS,
-              KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT,KC_UNDS, KC_TRNS,
-     TG(LNUM),KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_MINS, KC_TRNS,
+     TG(LSYM),KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+              KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_TRNS,
+     TG(LNUM),KC_LT,   KC_MINS, KC_UNDS, KC_GT,   KC_TRNS, KC_TRNS,
                        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
      KC_TRNS, KC_TRNS,
      KC_TRNS,
@@ -257,6 +253,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                             KC_TRNS,
                                           KC_DEL,  KC_BSPC, KC_TRNS,
      /* right hand: Leave blank
+      * LTOP and LGAM toggles included in case this layer is stuck
       *        +-----+-----+-----+-----+-----+-----+-------+
       *        |     |     |     |     |     |     |       |
       *        +-----+-----+-----+-----+-----+-----+-------+
@@ -275,20 +272,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       *    |     |     |     |
       *    +-----+-----+-----+
       */
-     TG(LGAM),KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-              KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-                       KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS, KC_TRNS,
-     KC_TRNS, KC_TRNS,
+     TG(LTOP), KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+     KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+               KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+     KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+                        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+     TG(LGAM), KC_TRNS,
      KC_TRNS,
-     KC_TRNS, KC_TRNS, KC_TRNS
+     KC_TRNS,  KC_TRNS, KC_TRNS
   ),
 
-  [LMED] = LAYOUT_ergodox( // layer 9 : Media layer
+  [LUTIL] = LAYOUT_ergodox( // layer 9 : Media layer
      /* left hand
       *    +-------+-----+-----+-----+-----+-----+-----+
-      *    |       |     |     |     |     |MEDIA| TOP |
+      *    |       |     |     |     |     |UTIL | TOP |
       *    +-------+-----+-----+-----+-----+-----+-----+
       *    |       |     |     |Mute | V+  |     | SYM |
       *    +-------+-----+-----+-----+-----+-----+     |
@@ -298,49 +295,50 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       *    +-+-----+-----+-----+-----+-----+-----+-----+
       *      |     |     |     |     |     |
       *      +-----+-----+-----+-----+-----+   +-----+-----+
-      *                                        |     |     |
+      *                                        |     |UTIL |
       *                                  +-----+-----+-----+
       *                                  |     |     |     |
       *                                  |     |     +-----+
       *                                  |     |     |     |
       *                                  +-----+-----+-----+
       */
-     KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, TG(LMED), TG(LTOP),
+     KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, TG(LUTIL), TG(LTOP),
      KC_TRNS,  KC_TRNS, KC_TRNS, KC_MUTE, KC_VOLU, KC_TRNS,  TG(LSYM),
      KC_TRNS,  KC_TRNS, KC_TRNS, KC_MRWD, KC_MPLY, KC_MFFD,
      KC_TRNS,  KC_TRNS, KC_TRNS, KC_MPRV, KC_VOLD, KC_MNXT,  TG(LNUM),
      KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-                                                   KC_TRNS,  KC_TRNS,
+                                                   KC_TRNS,  TG(LUTIL),
                                                              KC_TRNS,
                                           KC_TRNS, KC_TRNS,  KC_TRNS,
      /* right hand: Leave blank
       *        +-----+-----+-----+-----+-----+-----+-------+
-      *        |     |     |     |     |     |     |       |
+      *        | TOP |     |     |     |     |     |       |
       *        +-----+-----+-----+-----+-----+-----+-------+
-      *        |     |     |     |     |     |     |       |
+      *        | SYM |     |     |     |     |     |       |
       *        |     +-----+-----+-----+-----+-----+-------+
-      *        +-----+     |     |     |     |     |       |
-      *        |     +-----+-----+-----+-----+-----+-------+
-      *        |     |     |     |     |     |     |       |
+      *        +-----+LEFT |DOWN | UP  |RGHT |     |       |
+      *        | NUM +-----+-----+-----+-----+-----+-------+
+      *        |     |HOME |PGDN |PGUP | END |     |       |
       *        +-----+-----+-----+-----+-----+-----+-----+-+
       *                    |     |     |     |     |     |
       *    +-----+-----+   +-----+-----+-----+-----+-----+
-      *    |     |     |
+      *    |UTIL |     |
       *    +-----+-----+-----+
       *    |     |     |     |
       *    +-----+     |     |
       *    |     |     |     |
       *    +-----+-----+-----+
       */
-     TG(LMED),KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-              KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-                       KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS, KC_TRNS,
-     KC_TRNS, KC_TRNS,
+     TG(LTOP), KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+     TG(LSYM), KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+               KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT,KC_UNDS, KC_TRNS,
+     TG(LNUM), KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_MINS, KC_TRNS,
+                        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+     TG(LUTIL),KC_TRNS,
      KC_TRNS,
-     KC_TRNS, KC_TRNS, KC_TRNS
+     KC_TRNS,  KC_TRNS, KC_TRNS
   ),
+
   [LTOP] = LAYOUT_ergodox( // Top layer : function layers
     /* left hand
      *    +-------+-----+-----+-----+-----+-----+-----+
@@ -348,7 +346,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *    +-------+-----+-----+-----+-----+-----+-----+
      *    |       |CAPLK|SCRLK|NUMLK|     |PRTSC| SYM |
      *    +-------+-----+-----+-----+-----+-----+     |
-     *    |       |     |GAME |MEDIA| NUM | SYM +-----+
+     *    |       |     |GAME |UTIL | NUM | SYM +-----+
      *    +-------+-----+-----+-----+-----+-----+ NUM |
      *    |       |     |     |     |     |     |     |
      *    +-+-----+-----+-----+-----+-----+-----+-----+
@@ -363,7 +361,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
     TG(LMIRROR), KC_TRNS,   KC_TRNS,    KC_TRNS,   KC_TRNS,   KC_TRNS,  TG(LTOP),
     KC_TRNS,     KC_TRNS,   KC_CAPS,    KC_SCRL,   KC_NUM,    KC_PSCR,  TG(LSYM),
-    KC_TRNS,     KC_TRNS,   TG(LGAM),   TG(LMED),  TG(LNUM),  TG(LSYM),
+    KC_TRNS,     KC_TRNS,   TG(LGAM),   TG(LUTIL), TG(LNUM),  TG(LSYM),
     KC_TRNS,     KC_TRNS,   KC_TRNS,    KC_TRNS,   KC_TRNS,   KC_TRNS,  TG(LNUM),
     KC_TRNS,     KC_TRNS,   KC_TRNS,    KC_TRNS,   KC_TRNS,
                                                               KC_TRNS,  KC_TRNS,
@@ -375,7 +373,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *        +-----+-----+-----+-----+-----+-----+-------+
      *        | SYM |PRTSC|NUMLK|SCRLK|CAPLK|     |       |
      *        |     +-----+-----+-----+-----+-----+-------+
-     *        +-----+ SYM | NUM |MEDIA|GAME |     |       |
+     *        +-----+ SYM | NUM |UTIL |GAME |     |       |
      *        | NUM +-----+-----+-----+-----+-----+-------+
      *        |     |     |     |     |     |     |       |
      *        +-----+-----+-----+-----+-----+-----+-----+-+
@@ -390,7 +388,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
     TG(LTOP), KC_TRNS,   KC_TRNS,    KC_TRNS,   KC_TRNS,  KC_TRNS,  TG(LMIRROR),
     TG(LSYM), KC_PSCR,   KC_NUM,     KC_SCRL,   KC_CAPS,  KC_TRNS,  KC_TRNS,
-              TG(LSYM),  TG(LNUM),   TG(LMED),  TG(LGAM), KC_TRNS,  KC_TRNS,
+              TG(LSYM),  TG(LNUM),   TG(LUTIL), TG(LGAM), KC_TRNS,  KC_TRNS,
     TG(LNUM), KC_TRNS,   KC_TRNS,    KC_TRNS,   KC_TRNS,  KC_TRNS,  KC_TRNS,
                          KC_TRNS,    KC_TRNS,   KC_TRNS,  KC_TRNS,  KC_TRNS,
     KC_TRNS, KC_TRNS,
