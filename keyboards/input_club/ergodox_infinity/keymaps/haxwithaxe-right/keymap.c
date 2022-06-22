@@ -181,10 +181,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *    +-------+-----+-----+-----+-----+-----+-----+
      *    | FLASH | f11 | f12 | f13 | f14 | f15 | TOP |
      *    +-------+-----+-----+-----+-----+-----+-----+
-     *    |       | f1  | f2  | f3  | f4  | f5  | SYM |
+     *    |       | f1  | f2  | f3  | f4  | f5  |     |
      *    +-------+-----+-----+-----+-----+-----+     |
      *    |       |  1  |  2  |  3  |  4  |  5  +-----+
-     *    +-------+-----+-----+-----+-----+-----+ NUM |
+     *    +-------+-----+-----+-----+-----+-----+     |
      *    |       |LGUI |LSFT |LALT |LCTL |  ,  |     |
      *    +-+-----+-----+-----+-----+-----+-----+-----+
      *      |     |     |     |     |     |
@@ -258,7 +258,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
      KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
      KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-                                                   KC_TRNS, TG(MGAM),
+                                                   KC_TRNS, KC_TRNS,
                                                             KC_TRNS,
                                           KC_TRNS, KC_TRNS, KC_TRNS,
      /* right hand: Leave blank
@@ -285,8 +285,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      KC_RALT, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_BSLS,
               KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TAB,
      KC_RCTL, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_MINS,
-                       KC_LCTL, KC_LALT, KC_RBRC, KC_LBRC, KC_COMM,
-     TG(MGAM),KC_TRNS,
+                       KC_J,    KC_I,    KC_RBRC, KC_LBRC, KC_COMM,
+     KC_TRNS, KC_TRNS,
      KC_TRNS,
      KC_TRNS, KC_BSPC, KC_DEL
   ),
@@ -304,22 +304,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       *    +-+-----+-----+-----+-----+-----+-----+-----+
       *      |     |     |     |     |     |
       *      +-----+-----+-----+-----+-----+   +-----+-----+
-      *                                        |     |UTIL |
+      *                                        |     |     |
       *                                  +-----+-----+-----+
       *                                  |     |     |     |
       *                                  |     |     +-----+
       *                                  |     |     |     |
       *                                  +-----+-----+-----+
       */
-     KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, TG(MUTIL),
+     KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, TG(MTOP),
      KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, TG(MSYM),
      KC_TRNS,  KC_TRNS, KC_RGHT, KC_UP,   KC_DOWN, KC_LEFT,
      KC_TRNS,  KC_TRNS, KC_END,  KC_PGUP, KC_PGDN, KC_HOME, TG(MNUM),
      KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-                                                   KC_TRNS,  TG(MUTIL),
+                                                   KC_TRNS,  KC_TRNS,
                                                              KC_TRNS,
                                           KC_TRNS, KC_TRNS,  KC_TRNS,
-     /* right hand: Leave blank
+     /* right hand
       *        +-----+-----+-----+-----+-----+-----+-------+
       *        | TOP |     |     |     |     |     |       |
       *        +-----+-----+-----+-----+-----+-----+-------+
@@ -330,7 +330,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       *        +-----+-----+-----+-----+-----+-----+-----+-+
       *                    |     |     |     |     |     |
       *    +-----+-----+   +-----+-----+-----+-----+-----+
-      *    |UTIL |     |
+      *    |     |     |
       *    +-----+-----+-----+
       *    |     |     |     |
       *    +-----+     |     |
@@ -342,7 +342,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                KC_MFFD, KC_MPLY, KC_MRWD, KC_TRNS, KC_TRNS, KC_TRNS,
      TG(MNUM), KC_MNXT, KC_VOLD, KC_MPRV, KC_TRNS, KC_TRNS, KC_TRNS,
                         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-     TG(MUTIL),KC_TRNS,
+     KC_TRNS,  KC_TRNS,
      KC_TRNS,
      KC_TRNS,  KC_TRNS, KC_TRNS
   ),
