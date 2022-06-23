@@ -40,10 +40,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *    +-------+-----+-----+-----+-----+-----+-----+
      *    |       |     |     |     |     |     | TOP |
      *    +-------+-----+-----+-----+-----+-----+-----+
-     *    |CTL/ESC|  Q  |  W  |  E  |  R  |  T  |     |
-     *    +-------+-----+-----+-----+-----+-----+     |
-     *    |  TAB  |  A  |  S  |  D  |  F  |  G  +-----+
-     *    +-------+-----+-----+-----+-----+-----+     |
+     *    |       |  Q  |  W  |  E  |  R  |  T  | CTL/|
+     *    +-------+-----+-----+-----+-----+-----+ ESC |
+     *    |       |  A  |  S  |  D  |  F  |  G  +-----+
+     *    +-------+-----+-----+-----+-----+-----+ TAB |
      *    |       |  Z  |  X  |  C  |  V  |  B  |     |
      *    +-+-----+-----+-----+-----+-----+-----+-----+
      *      |LGUI | RT  | DN  | UP  | LT  |
@@ -67,13 +67,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *        +-----+-----+-----+-----+-----+-----+-------+
      *        | TOP|      |     |     |     |     |       |
      *        +-----+-----+-----+-----+-----+-----+-------+
-     *        |     |  Y  |  U  |  I  |  O  |  P  |       |
+     *        |  '  |  Y  |  U  |  I  |  O  |  P  |       |
      *        |     +-----+-----+-----+-----+-----+-------+
-     *        +-----+  H  |  J  |  K  |  L  |  ;  | ENT   |
-     *        |     +-----+-----+-----+-----+-----+-------+
+     *        +-----+  H  |  J  |  K  |  L  |  ;  |       |
+     *        |  -  +-----+-----+-----+-----+-----+-------+
      *        |     |  N  |  M  |  ,  |  .  |  /  |       |
      *        +-----+-----+-----+-----+-----+-----+-----+-+
-     *                    |     |     |     |     | RGUI|
+     *                    |     |     |     |     |     |
      *    +------+-----+  +-----+-----+-----+-----+-----+
      *    | RALT |RCTRL|
      *    +------+-----+-----+
@@ -96,10 +96,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // Keeping normal qwerty because other layers aren't mirrored
     /* left hand
      */
-    KC_EQL,  KC_1,    KC_2,    KC_3,  KC_4,    KC_5, KC_ESC,
-    KC_BSLS, KC_Q,    KC_W,    KC_E,  KC_R,    KC_T, KC_NO, 
+    KC_EQL,  KC_1,    KC_2,    KC_3,  KC_4,    KC_5,    KC_ESC,
+    KC_BSLS, KC_Q,    KC_W,    KC_E,  KC_R,    KC_T,    KC_NO, 
     KC_TAB,  KC_A,    KC_S,    KC_D,  KC_F,    KC_G,
-    KC_ENT,  KC_Z,    KC_X,    KC_C,  KC_V,    KC_B, MO(MTOP),
+    KC_ENT,  KC_Z,    KC_X,    KC_C,  KC_V,    KC_B,    MO(MTOP),
     KC_RGUI, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT,
     								           KC_LCTL, KC_LALT,
     										            KC_INS,
@@ -140,9 +140,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       *                                  +-----+-----+-----+
       */
      KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, TG(MTOP),
-     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-     KC_TRNS, KC_RPRN, KC_LPRN, KC_ASTR, KC_AMPR, KC_CIRC,
-     KC_TRNS, KC_TRNS, KC_GT,   KC_UNDS, KC_MINS, KC_LT,   KC_TRNS,
+     KC_TRNS, KC_TRNS, KC_GT,   KC_COLN, KC_SCLN, KC_LT,   KC_TRNS,
+     KC_TRNS, KC_NO,   KC_NO,   KC_ASTR, KC_AMPR, KC_CIRC,
+     KC_TRNS, KC_TRNS, KC_QUES, KC_RPRN, KC_LPRN, KC_SLSH, KC_TRNS,
      KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
                                                   KC_TRNS, KC_TRNS,
                                                            KC_TRNS,
