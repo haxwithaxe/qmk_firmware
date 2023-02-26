@@ -105,4 +105,5 @@ compile_commands.json
 .clangd/
 .cache/
 
-lib/ugfx/
+# VIA(L) json files that don't belong in QMK repo
+via*.json
