@@ -347,63 +347,123 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [LDDP1] = LAYOUT_ergodox(
-    KC_PDOT, KC_NO,   KC_NO,   KC_NO,    KC_NO,  KC_NO,   KC_TRNS,
-    KC_P0,   KC_LEFT, KC_UP,   KC_NO,    KC_NO,  KC_NO,   KC_RALT,
-    KC_PMNS, KC_NO,   KC_DOWN, KC_RIGHT, KC_NO,  KC_NO,
-    KC_PMNS, KC_NO,   KC_NO,   KC_NO,    KC_NO,  KC_NO,   KC_HOME,
-    KC_NO,   KC_NO,   KC_NO,   KC_TRNS,  KC_NO,
-                                                 KC_NO,   KC_NO,
-                                                          KC_NO,
-                                         KC_INS, KC_TRNS, KC_NO,
+    /* N/A */
+    KC_TRNS, KC_TRNS,   KC_TRNS,   KC_TRNS,    KC_TRNS,  KC_TRNS,   KC_TRNS,
+    KC_TRNS, KC_TRNS,   KC_TRNS,   KC_TRNS,    KC_TRNS,  KC_TRNS,   KC_TRNS,
+    KC_TRNS, KC_TRNS,   KC_TRNS,   KC_TRNS,    KC_TRNS,  KC_TRNS,
+    KC_TRNS, KC_TRNS,   KC_TRNS,   KC_TRNS,    KC_TRNS,  KC_TRNS,   KC_TRNS,
+    KC_TRNS, KC_TRNS,   KC_TRNS,   KC_TRNS,    KC_TRNS,
+                                               KC_TRNS,  KC_TRNS,
+                                                         KC_TRNS,
+                                   KC_TRNS,    KC_TRNS,  KC_TRNS,
 
-    KC_TRNS,  KC_NO,   KC_NO,  KC_NO, KC_NO,   KC_NO, KC_NO,
-    KC_NO,    KC_NO,   KC_NO,  KC_NO, KC_NO,   KC_NO, KC_NO,
-              KC_NO,   KC_NO,  KC_NO, KC_NO,   KC_NO, KC_NO,
-    KC_NO,    KC_NO,   KC_NO,  KC_NO, KC_NO,   KC_NO, KC_NO,
-              KC_SLSH, KC_NO,  KC_NO, KC_BSLS, KC_NO,
-    KC_TRNS,    KC_NO,
+    /* right hand: gamepad
+     *        +-----+-----+-----+-----+-----+-----+-------+
+     *        |     |     |     |     |     |     | Lock  |
+     *        +-----+-----+-----+-----+-----+-----+-------+
+     *        |     |     |     |     |     |     |Select |
+     *        | AB2 +-----+-----+-----+-----+-----+-------+
+     *        +-----+Left |Down | Up  |Right|     |       |
+     *        |     +-----+-----+-----+-----+-----+-------+
+     *        | AB1 |CamLt|  B  |Zoom |CamRt|     |       |
+     *        +-----+-----+-----+-----+-----+-----+-----+-+
+     *                    |     |     |     |     |     |
+     *    +------+-----+   +-----+-----+-----+-----+-----+
+     *    |LDDCTL|Start|
+     *    +------+-----+-----+
+     *    |Zoom  |     |     |
+     *    +------+ Att |  A  |
+     *    |AltAt |     |     |
+     *    +------+-----+-----+
+     */
+    KC_TRNS,  TO(LDDP1), TG(LDDP2), TG(LDDP3), KC_NO,   KC_NO,   QK_LOCK,
+    KC_PDOT,  TO(LDDP1), TO(LDDP2), TO(LDDP3), KC_NO,   KC_NO,   KC_HOME,
+              KC_LEFT,   KC_DOWN,   KC_UP,     KC_RIGHT,KC_NO,   KC_NO,
+    KC_P0,    KC_SLSH,   KC_PGUP,   KC_PAUS,   KC_BSLS, KC_NO,   KC_NO,
+                         KC_NO,     KC_NO,     KC_NO,   KC_NO,   KC_NO,
+    KC_TRNS,  KC_RALT,
     KC_PAUS,
-    KC_GRAVE, KC_PPLS, KC_PGUP
+    KC_GRAVE, KC_PPLS, KC_INS
   ),
 
   [LDDP2] = LAYOUT_ergodox(
-    KC_PAST, KC_NO, KC_NO,   KC_NO,   KC_NO,  KC_NO,   KC_TRNS,
-    KC_NUM,  KC_P7, KC_PSLS, KC_NO,   KC_NO,  KC_NO,   KC_PENT,
-    KC_PMNS, KC_NO, KC_P8,   KC_P9,   KC_NO,  KC_NO,
-    KC_PMNS, KC_NO, KC_NO,   KC_NO,   KC_NO,  KC_NO,   KC_HOME,
-    KC_NO,   KC_NO, KC_NO,   KC_TRNS, KC_NO,
-                                              KC_NO,   KC_SCLN,
-                                                       KC_NO,
-                                      KC_INS, KC_TRNS, KC_NO,
+    /* N/A */
+    KC_TRNS, KC_TRNS,   KC_TRNS,   KC_TRNS,    KC_TRNS,  KC_TRNS,   KC_TRNS,
+    KC_TRNS, KC_TRNS,   KC_TRNS,   KC_TRNS,    KC_TRNS,  KC_TRNS,   KC_TRNS,
+    KC_TRNS, KC_TRNS,   KC_TRNS,   KC_TRNS,    KC_TRNS,  KC_TRNS,
+    KC_TRNS, KC_TRNS,   KC_TRNS,   KC_TRNS,    KC_TRNS,  KC_TRNS,   KC_TRNS,
+    KC_TRNS, KC_TRNS,   KC_TRNS,   KC_TRNS,    KC_TRNS,
+                                               KC_TRNS,  KC_TRNS,
+                                                         KC_TRNS,
+                                   KC_TRNS,    KC_TRNS,  KC_TRNS,
 
-    KC_TRNS, KC_NO,    KC_NO,  KC_NO, KC_NO,  KC_NO, KC_NO,
-    KC_NO,   KC_NO,    KC_NO,  KC_NO, KC_NO,  KC_NO, KC_NO,
-             KC_NO,    KC_NO,  KC_NO, KC_NO,  KC_NO, KC_NO,
-    KC_TRNS, KC_NO,    KC_NO,  KC_NO, KC_NO,  KC_NO, KC_NO,
-             KC_MINS,  KC_NO,  KC_NO, KC_EQL, KC_NO,
-    KC_TRNS,   KC_QUOTE,
+    /* right hand: gamepad
+     *        +-----+-----+-----+-----+-----+-----+-------+
+     *        |     |     |     |     |     |     | Lock  |
+     *        +-----+-----+-----+-----+-----+-----+-------+
+     *        |     |     |     |     |     |     |Select |
+     *        | AB2 +-----+-----+-----+-----+-----+-------+
+     *        +-----+Left |Down | Up  |Right|     |       |
+     *        |     +-----+-----+-----+-----+-----+-------+
+     *        | AB1 |CamLt|  B  |Zoom |CamRt|     |       |
+     *        +-----+-----+-----+-----+-----+-----+-----+-+
+     *                    |     |     |     |     |     |
+     *    +------+-----+   +-----+-----+-----+-----+-----+
+     *    |LDDCTL|Start|
+     *    +------+-----+-----+
+     *    |Zoom  |     |     |
+     *    +------+ Att |  A  |
+     *    |AltAt |     |     |
+     *    +------+-----+-----+
+     */
+    KC_TRNS,  TO(LDDP1), TG(LDDP2), TG(LDDP3), KC_NO,   KC_NO,   QK_LOCK,
+    KC_PAST,  TO(LDDP1), TO(LDDP2), TO(LDDP3), KC_NO,   KC_NO,   KC_HOME,
+              KC_P7,     KC_P8,     KC_PSLS,   KC_P9,   KC_NO,   KC_NO,
+    KC_NUM,   KC_SLSH,   KC_PGUP,   KC_LBRC,   KC_BSLS, KC_NO,   KC_NO,
+                         KC_NO,     KC_NO,     KC_NO,   KC_NO,   KC_NO,
+    TG(LDDCTL), KC_PENT,
     KC_PAUS,
-    KC_DEL,  KC_LBRC, KC_PGUP
+    KC_DEL,     KC_PPLS, KC_INS
   ),
 
   [LDDP3] = LAYOUT_ergodox(
-    KC_P6,   KC_NO, KC_NO, KC_NO,   KC_NO,  KC_NO,   KC_TRNS,
-    KC_P4,   KC_P1, KC_P5, KC_NO,   KC_NO,  KC_NO,   KC_RCTL,
-    KC_PMNS, KC_NO, KC_P2, KC_P3,   KC_NO,  KC_NO,
-    KC_PMNS, KC_NO, KC_NO, KC_NO,   KC_NO,  KC_NO,   KC_HOME,
-    KC_NO,   KC_NO, KC_NO, KC_TRNS, KC_NO,
-                                            KC_NO,   KC_NO,
-                                                     KC_NO,
-                                    KC_INS, KC_TRNS, KC_NO,
+    /* N/A */
+    KC_TRNS, KC_TRNS,   KC_TRNS,   KC_TRNS,    KC_TRNS,  KC_TRNS,   KC_TRNS,
+    KC_TRNS, KC_TRNS,   KC_TRNS,   KC_TRNS,    KC_TRNS,  KC_TRNS,   KC_TRNS,
+    KC_TRNS, KC_TRNS,   KC_TRNS,   KC_TRNS,    KC_TRNS,  KC_TRNS,
+    KC_TRNS, KC_TRNS,   KC_TRNS,   KC_TRNS,    KC_TRNS,  KC_TRNS,   KC_TRNS,
+    KC_TRNS, KC_TRNS,   KC_TRNS,   KC_TRNS,    KC_TRNS,
+                                               KC_TRNS,  KC_TRNS,
+                                                         KC_TRNS,
+                                   KC_TRNS,    KC_TRNS,  KC_TRNS,
 
-    KC_TRNS, KC_NO,   KC_NO,  KC_NO, KC_NO,   KC_NO, KC_NO,
-    KC_NO,   KC_NO,   KC_NO,  KC_NO, KC_NO,   KC_NO, KC_NO,
-             KC_NO,   KC_NO,  KC_NO, KC_NO,   KC_NO, KC_NO,
-    KC_TRNS, KC_NO,   KC_NO,  KC_NO, KC_NO,   KC_NO, KC_NO,
-             KC_DOT,  KC_NO,  KC_NO, KC_COMM, KC_NO,
-    KC_TRNS,   KC_NO,
+    /* right hand: gamepad
+     *        +-----+-----+-----+-----+-----+-----+-------+
+     *        |     |     |     |     |     |     | Lock  |
+     *        +-----+-----+-----+-----+-----+-----+-------+
+     *        |     |     |     |     |     |     |Select |
+     *        | AB2 +-----+-----+-----+-----+-----+-------+
+     *        +-----+Left |Down | Up  |Right|     |       |
+     *        |     +-----+-----+-----+-----+-----+-------+
+     *        | AB1 |CamLt|  B  |Zoom |CamRt|     |       |
+     *        +-----+-----+-----+-----+-----+-----+-----+-+
+     *                    |     |     |     |     |     |
+     *    +------+-----+   +-----+-----+-----+-----+-----+
+     *    |LDDCTL|Start|
+     *    +------+-----+-----+
+     *    |Zoom  |     |     |
+     *    +------+ Att |  A  |
+     *    |AltAt |     |     |
+     *    +------+-----+-----+
+     */
+    KC_TRNS,    TO(LDDP1), TG(LDDP2), TG(LDDP3), KC_NO,   KC_NO,   QK_LOCK,
+    KC_P6,      TO(LDDP1), TO(LDDP2), TO(LDDP3), KC_NO,   KC_NO,   KC_HOME,
+                KC_P1,     KC_P2,     KC_P5,     KC_P3,   KC_NO,   KC_NO,
+    KC_P4,      KC_DOT,    KC_PGUP,   KC_PAUS,   KC_COMM, KC_NO,   KC_NO,
+                           KC_NO,     KC_NO,     KC_NO,   KC_NO,   KC_NO,
+    TG(LDDCTL), KC_RCTL,
     KC_PAUS,
-    KC_BSPC, KC_RBRC, KC_PGUP
+    KC_BSPC,    KC_RBRC,   KC_INS
   ),
 
   [LDDCTL] = LAYOUT_ergodox( // layer 8: Dungeon Defenders Control
