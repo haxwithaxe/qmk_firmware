@@ -315,35 +315,33 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                KC_TRNS,    KC_INS,
                                                            KC_TRNS,
                                       KC_DEL,  MO(LDDCTL), KC_TRNS,
-    /* right hand: Partial gamepad 1
+    /* right hand: gamepad 1
      *        +-----+-----+-----+-----+-----+-----+-------+
-     *        |     |     |     |     |     |     |       |
+     *        |     |     |     |     |     |     | Lock  |
      *        +-----+-----+-----+-----+-----+-----+-------+
-     *        |     |     |     |     |     |     |       |
+     *        |     |     |     |     |     |     |Select |
      *        | AB2 +-----+-----+-----+-----+-----+-------+
-     *        +-----+     |     |     |     |     |       |
+     *        +-----+Left |Down | Up  |Right|     |       |
      *        |     +-----+-----+-----+-----+-----+-------+
-     *        | AB1 |     |CamLt| Up  |Right|CamRt|       |
+     *        | AB1 |CamLt|  B  |Zoom |CamRt|     |       |
      *        +-----+-----+-----+-----+-----+-----+-----+-+
-     *                    |Left |Down |     |     |     |
-     *    +-----+-----+   +-----+-----+-----+-----+-----+
-     *    |     |     |
-     *    +-----+-----+-----+
-     *    |Zoom |     |     |
-     *    +-----+ Att |  B  |
-     *    |AltAt|     |     |
-     *    +-----+-----+-----+
+     *                    |     |     |     |     |     |
+     *    +------+-----+   +-----+-----+-----+-----+-----+
+     *    |LDDCTL|Start|
+     *    +------+-----+-----+
+     *    |Zoom  |     |     |
+     *    +------+ Att |  A  |
+     *    |AltAt |     |     |
+     *    +------+-----+-----+
      */
-    KC_TRNS,    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-    // pad 1 ab2
-    KC_PDOT,    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS,
-                KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS,
-    // pad 1 ab1
-    KC_P0,      KC_TRNS, KC_SLSH, KC_UP,   KC_RIGHT, KC_BSLS, KC_TRNS,
-                         KC_LEFT, KC_DOWN, KC_TRNS,  KC_TRNS, KC_NO,
-    MO(LDDCTL), KC_TRNS,
-    KC_PAUS,  // com zoom
-    KC_GRAVE, KC_PPLS, KC_PGUP  //pad 1 lshoulder, com rshoulder and b button
+    KC_TRNS,  TO(LDD),   TG(LDDP2), TG(LDDP3), KC_NO,   KC_NO,   QK_LOCK,
+    KC_PDOT,  TO(LDD),   TO(LDD),   TO(LDD),   KC_NO,   KC_NO,   KC_HOME,
+              KC_LEFT,   KC_DOWN,   KC_UP,     KC_RIGHT,KC_NO,   KC_NO,
+    KC_P0,    KC_SLSH,   KC_PGUP,   KC_PAUS,   KC_BSLS, KC_NO,   KC_NO,
+                         KC_NO,     KC_NO,     KC_NO,   KC_NO,   KC_NO,
+    KC_NO,    KC_RALT,
+    KC_PAUS,
+    KC_GRAVE, KC_PPLS, KC_INS
   ),
 
   [LDDP1] = LAYOUT_ergodox(
@@ -376,12 +374,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *    |AltAt |     |     |
      *    +------+-----+-----+
      */
-    KC_TRNS,  TO(LDDP1), TG(LDDP2), TG(LDDP3), KC_NO,   KC_NO,   QK_LOCK,
-    KC_PDOT,  TO(LDDP1), TO(LDDP2), TO(LDDP3), KC_NO,   KC_NO,   KC_HOME,
+    KC_TRNS,  KC_TRNS,   KC_TRNS,   KC_TRNS, KC_NO,   KC_NO,   QK_LOCK,
+    KC_PDOT,  KC_TRNS,   KC_TRNS,   KC_TRNS, KC_NO,   KC_NO,   KC_HOME,
               KC_LEFT,   KC_DOWN,   KC_UP,     KC_RIGHT,KC_NO,   KC_NO,
     KC_P0,    KC_SLSH,   KC_PGUP,   KC_PAUS,   KC_BSLS, KC_NO,   KC_NO,
                          KC_NO,     KC_NO,     KC_NO,   KC_NO,   KC_NO,
-    KC_TRNS,  KC_RALT,
+    KC_NO,    KC_RALT,
     KC_PAUS,
     KC_GRAVE, KC_PPLS, KC_INS
   ),
@@ -416,14 +414,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *    |AltAt |     |     |
      *    +------+-----+-----+
      */
-    KC_TRNS,  TO(LDDP1), TG(LDDP2), TG(LDDP3), KC_NO,   KC_NO,   QK_LOCK,
-    KC_PAST,  TO(LDDP1), TO(LDDP2), TO(LDDP3), KC_NO,   KC_NO,   KC_HOME,
+    KC_TRNS,  KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_NO,   KC_NO,   QK_LOCK,
+    KC_PAST,  KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_NO,   KC_NO,   KC_HOME,
               KC_P7,     KC_P8,     KC_PSLS,   KC_P9,   KC_NO,   KC_NO,
-    KC_NUM,   KC_SLSH,   KC_PGUP,   KC_LBRC,   KC_BSLS, KC_NO,   KC_NO,
+    KC_NUM,   KC_MINS,   KC_PGUP,   KC_PAUS,   KC_EQL,  KC_NO,   KC_NO,
                          KC_NO,     KC_NO,     KC_NO,   KC_NO,   KC_NO,
-    TG(LDDCTL), KC_PENT,
+    KC_NO,    KC_F3,
     KC_PAUS,
-    KC_DEL,     KC_PPLS, KC_INS
+    KC_F2,    KC_LBRC,   KC_INS
   ),
 
   [LDDP3] = LAYOUT_ergodox(
@@ -456,12 +454,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *    |AltAt |     |     |
      *    +------+-----+-----+
      */
-    KC_TRNS,    TO(LDDP1), TG(LDDP2), TG(LDDP3), KC_NO,   KC_NO,   QK_LOCK,
-    KC_P6,      TO(LDDP1), TO(LDDP2), TO(LDDP3), KC_NO,   KC_NO,   KC_HOME,
+    KC_TRNS,    KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_NO,   KC_NO,   QK_LOCK,
+    KC_P6,      KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_NO,   KC_NO,   KC_HOME,
                 KC_P1,     KC_P2,     KC_P5,     KC_P3,   KC_NO,   KC_NO,
     KC_P4,      KC_DOT,    KC_PGUP,   KC_PAUS,   KC_COMM, KC_NO,   KC_NO,
                            KC_NO,     KC_NO,     KC_NO,   KC_NO,   KC_NO,
-    TG(LDDCTL), KC_RCTL,
+    KC_NO,      KC_RCTL,
     KC_PAUS,
     KC_BSPC,    KC_RBRC,   KC_INS
   ),
@@ -487,7 +485,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *                                  +-----+-----+-----+
      */
     KC_TRNS, KC_NO,   TG(LDDP1), TG(LDDP2), TG(LDDP3), KC_F1, KC_TRNS,
-    KC_TRNS, KC_TRNS, TO(LDDP1), TO(LDDP2), TO(LDDP3), KC_TRNS, KC_TAB,
+    KC_TRNS, KC_TRNS, TO(LDD),   TO(LDD),   TO(LDD),   KC_TRNS, KC_TAB,
     KC_TRNS, KC_TRNS, KC_TRNS,   KC_TRNS,   KC_F,      KC_G,
     KC_TRNS, KC_TRNS, KC_TRNS,   KC_C,      KC_TRNS,   KC_TRNS, KC_TRNS,
     KC_TRNS, KC_TRNS, KC_TRNS,   KC_TRNS,   KC_TRNS,
@@ -514,7 +512,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *    +-----+-----+-----+
      */
     KC_TRNS, KC_F1,   TG(LDDP3), TG(LDDP2), TG(LDDP1), KC_TRNS, KC_TRNS,
-    KC_TRNS, KC_TRNS, TO(LDDP3), TO(LDDP2), TO(LDDP1), KC_TRNS, KC_TRNS,
+    KC_TRNS, KC_TRNS, TO(LDD),   TO(LDD),   TO(LDD),   KC_TRNS, KC_TRNS,
              KC_G,    KC_F,      KC_TRNS,   KC_TRNS,   KC_TRNS, KC_TRNS,
     KC_TRNS, KC_TRNS, KC_TRNS,   KC_C,      KC_TRNS,   KC_TRNS, KC_TRNS,
                       KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS, KC_TRNS,
